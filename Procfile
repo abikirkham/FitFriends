@@ -1,0 +1,1 @@
+web: gunicorn fitfriends2024.wsgi

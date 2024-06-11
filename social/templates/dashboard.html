@@ -6,12 +6,16 @@
 <body>
     <h2>Dashboard</h2>
     <a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'profile' user.username %}">My Profile</a>
+    <a href="{% url 'messages' %}">Messages</a>
+    <h3>Post an update to your fitness pals</h2>
     <form method="post">
         {% csrf_token %}
         <input type="text" name="title" placeholder="Title">
         <textarea name="content" placeholder="Content"></textarea>
         <button type="submit" name="post_status">Post Status</button>
     </form>
+    <h4>Posts</h4>
     <ul>
     {% for post in posts %}
         <li>
@@ -31,7 +35,5 @@
         </li>
     {% endfor %}
     </ul>
-    <a href="{% url 'profile' user.username %}">My Profile</a>
-    <a href="{% url 'messages' %}">Messages</a>
 </body>
 </html>

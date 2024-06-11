@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import UserUpdateForm, ProfileUpdateForm
+from .models import Message
 
 def register(request):
     if request.method == 'POST':
@@ -46,3 +47,11 @@ def profile(request, username):
         'user': user,
     }
     return render(request, 'profile.html', context)
+
+
+@login_required
+def messages(request):
+    user = request.user
+    messages_received = Message.objects.filter(receiver=user)
+    messages_sent = Message.objects.filter(sender=user)
+    return render(request, 'messages.html', {'messages_received': messages_received, 'messages_sent': messages_sent})

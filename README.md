@@ -117,3 +117,5 @@ Start
 ## Testing
 
 ## Credits
+- [WireFrames](https://cacoo.com/diagrams/QXSJF7qPDCKNuzVk/B4F94?reload_rt=1718100120618_1&)
+- [Base project for a social network site](https://realpython.com/django-social-network-1/)

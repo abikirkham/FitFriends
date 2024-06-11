@@ -40,8 +40,26 @@ def profile(request, username):
 
 @login_required
 def dashboard(request):
+    if request.method == 'POST':
+        if 'post_status' in request.POST:
+            title = request.POST.get('title')
+            content = request.POST.get('content')
+            Post.objects.create(title=title, content=content, author=request.user)
+        elif 'post_comment' in request.POST:
+            post_id = request.POST.get('post_id')
+            content = request.POST.get('content')
+            post = Post.objects.get(id=post_id)
+            Comment.objects.create(post=post, content=content, author=request.user)
+        elif 'like_post' in request.POST:
+            post_id = request.POST.get('post_id')
+            post = Post.objects.get(id=post_id)
+            like, created = Like.objects.get_or_create(post=post, user=request.user)
+            if not created:
+                like.delete()
     posts = Post.objects.all()
     return render(request, 'dashboard.html', {'posts': posts})
+
+
 
 @login_required
 def messages(request):

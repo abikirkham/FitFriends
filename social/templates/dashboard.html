@@ -5,9 +5,29 @@
 </head>
 <body>
     <h2>Dashboard</h2>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="Title">
+        <textarea name="content" placeholder="Content"></textarea>
+        <button type="submit" name="post_status">Post Status</button>
+    </form>
     <ul>
     {% for post in posts %}
-        <li>{{ post.title }} by {{ post.author }}</li>
+        <li>
+            <strong>{{ post.title }}</strong> by {{ post.author.username }} on {{ post.created_at|date:"F d, Y H:i" }}<br>
+            {{ post.content }}<br>
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="post_id" value="{{ post.id }}">
+                <textarea name="content" placeholder="Comment"></textarea>
+                <button type="submit" name="post_comment">Post Comment</button>
+            </form>
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="post_id" value="{{ post.id }}">
+                <button type="submit" name="like_post">{% if request.user in post.likes.all %}Unlike{% else %}Like{% endif %}</button>
+            </form>
+        </li>
     {% endfor %}
     </ul>
     <a href="{% url 'profile' user.username %}">My Profile</a>

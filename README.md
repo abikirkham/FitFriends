@@ -120,6 +120,10 @@ used codde institute google doc cheatsheets to ensure cloudinary, neon sql and h
 
 ## Testing
 
+## Issues
+
+- intial issues - when the base was set up - the links would not work to go to the other pages, for example, when click register it would not log them in, when uodate profile, it would go to error page 505. I checked the django documentation which i saw these were in line and written correctly, the urls and views where matched up well and my directory was in the correct order. I asked code institute tutors for assistance. 
+
 ## Credits
 - [WireFrames](https://cacoo.com/diagrams/QXSJF7qPDCKNuzVk/B4F94?reload_rt=1718100120618_1&)
 - [Base project for a social network site](https://realpython.com/django-social-network-1/)

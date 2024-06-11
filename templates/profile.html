@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ user.username }}'s Profile</title>
+</head>
+<body>
+    <h2>{{ user.username }}'s Profile</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ u_form.as_p }}
+        {{ p_form.as_p }}
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

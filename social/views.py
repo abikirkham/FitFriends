@@ -15,7 +15,7 @@ def register(request):
             return redirect('login')
     else:
         form = UserRegisterForm()
-    return render(request, 'myapp/register.html', {'form': form})
+    return render(request, 'templates/register.html', {'form': form})
 
 @login_required
 def profile(request, username):
@@ -36,16 +36,16 @@ def profile(request, username):
         'p_form': p_form,
         'user': user,
     }
-    return render(request, 'myapp/profile.html', context)
+    return render(request, 'templates/profile.html', context)
 
 @login_required
 def dashboard(request):
     posts = Post.objects.all()
-    return render(request, 'myapp/dashboard.html', {'posts': posts})
+    return render(request, 'templates/dashboard.html', {'posts': posts})
 
 @login_required
 def messages(request):
     user = request.user
     messages_received = Message.objects.filter(receiver=user)
     messages_sent = Message.objects.filter(sender=user)
-    return render(request, 'myapp/messages.html', {'messages_received': messages_received, 'messages_sent': messages_sent})
+    return render(request, 'templates/messages.html', {'messages_received': messages_received, 'messages_sent': messages_sent})

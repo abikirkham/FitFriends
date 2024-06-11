@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Messages</title>
+</head>
+<body>
+    <h2>Messages</h2>
+    <h3>Received Messages</h3>
+    <ul>
+    {% for message in messages_received %}
+        <li>From: {{ message.sender }} - {{ message.content }}</li>
+    {% endfor %}
+    </ul>
+
+    <h3>Sent Messages</h3>
+    <ul>
+    {% for message in messages_sent %}
+        <li>To: {{ message.receiver }} - {{ message.content }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

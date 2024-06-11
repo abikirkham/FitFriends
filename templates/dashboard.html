@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h2>Dashboard</h2>
+    <ul>
+    {% for post in posts %}
+        <li>{{ post.title }} by {{ post.author }}</li>
+    {% endfor %}
+    </ul>
+    <a href="{% url 'profile' user.username %}">My Profile</a>
+    <a href="{% url 'messages' %}">Messages</a>
+</body>
+</html>

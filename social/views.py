@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from .models import Post, Profile, Message
+from .models import Post, Like, Comment
+
 
 def register(request):
     if request.method == 'POST':
@@ -75,6 +77,8 @@ def dashboard(request):
             like, created = Like.objects.get_or_create(post=post, user=request.user)
             if not created:
                 like.delete()
+        return redirect('dashboard')  # Redirect to the dashboard page after processing the form
+
     posts = Post.objects.all()
     return render(request, 'dashboard.html', {'posts': posts})
 

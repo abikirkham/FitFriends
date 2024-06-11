@@ -5,11 +5,15 @@
 </head>
 <body>
     <h2>{{ user.username }}'s Profile</h2>
-    <form method="POST" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ u_form.as_p }}
-        {{ p_form.as_p }}
-        <button type="submit">Update</button>
-    </form>
+    
+    <h3>User's Posts</h3>
+    <ul>
+    {% for post in user_posts %}
+        <li>
+            <strong>{{ post.title }}</strong> - {{ post.created_at|date:"F d, Y H:i" }}<br>
+            {{ post.content }}
+        </li>
+    {% endfor %}
+    </ul>
 </body>
 </html>

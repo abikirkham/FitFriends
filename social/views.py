@@ -20,21 +20,10 @@ def register(request):
 @login_required
 def profile(request, username):
     user = User.objects.get(username=username)
-    if request.method == 'POST':
-        u_form = UserUpdateForm(request.POST, instance=user)
-        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=user.profile)
-        if u_form.is_valid() and p_form.is_valid():
-            u_form.save()
-            p_form.save()
-            messages.success(request, f'Your profile has been updated!')
-            return redirect('profile', username=user.username)
-    else:
-        u_form = UserUpdateForm(instance=user)
-        p_form = ProfileUpdateForm(instance=user.profile)
+    user_posts = Post.objects.filter(author=user)
     context = {
-        'u_form': u_form,
-        'p_form': p_form,
         'user': user,
+        'user_posts': user_posts,  # Add user's posts to the context
     }
     return render(request, 'profile.html', context)
 
@@ -58,8 +47,6 @@ def dashboard(request):
                 like.delete()
     posts = Post.objects.all()
     return render(request, 'dashboard.html', {'posts': posts})
-
-
 
 @login_required
 def messages(request):

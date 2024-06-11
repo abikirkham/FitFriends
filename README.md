@@ -114,6 +114,10 @@ Start
 - NEON
 - CLOUDINARY
 
+## Set up
+https://docs.djangoproject.com/en/dev/intro/tutorial01/ - understand set up
+used codde institute google doc cheatsheets to ensure cloudinary, neon sql and heroku set up.
+
 ## Testing
 
 ## Credits

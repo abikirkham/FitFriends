@@ -16,12 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from . import views
+from social import views
 
 urlpatterns = [
-    path('register/', views.register, name='templates/register'),
-    path('login/', auth_views.LoginView.as_view(template_name='templates/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='templates/logout.html'), name='logout'),
+    path('register/', views.register, name='register'),
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('profile/<str:username>/', views.profile, name='profile'),
     path('messages/', views.messages, name='messages'),

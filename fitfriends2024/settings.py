@@ -67,7 +67,7 @@ ROOT_URLCONF = 'fitfriends2024.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [os.path.join(BASE_DIR, 'social', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

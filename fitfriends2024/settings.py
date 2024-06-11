@@ -33,7 +33,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-abikirkham-fitfriends-a8nry6hf04g.ws-eu114.gitpod.io', 'fit-friends-django-39b8f06f4fea.herokuapp.com', 'local_host']
 

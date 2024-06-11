@@ -4,8 +4,9 @@
     <title>{{ user.username }}'s Profile</title>
 </head>
 <body>
+    <a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'dashboard' %}">Dashboard</a>
     <h2>{{ user.username }}'s Profile</h2>
-    
     <h3>User's Posts</h3>
     <ul>
     {% for post in user_posts %}

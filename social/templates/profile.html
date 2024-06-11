@@ -8,6 +8,15 @@
     <a href="{% url 'logout' %}">Logout</a>
     <a href="{% url 'dashboard' %}">Dashboard</a>
     <h2>{{ user.username }}'s Profile</h2>
+
+    {% if user != request.user %}
+        {% if is_friend %}
+            <a href="{% url 'unfollow' user.username %}" class="btn btn-danger">Unfollow</a>
+        {% else %}
+            <a href="{% url 'follow' user.username %}" class="btn btn-primary">Follow</a>
+        {% endif %}
+    {% endif %}
+
     <h3>User's Posts</h3>
     <ul>
     {% for post in user_posts %}
@@ -17,5 +26,21 @@
         </li>
     {% endfor %}
     </ul>
+
+    <h3>{{ user.username }}'s Friends</h3>
+    <ul>
+    {% for friend in profile.friends.all %}
+        <li><a href="{% url 'profile' friend.username %}">{{ friend.username }}</a></li>
+    {% endfor %}
+    </ul>
+
+    {% if user != request.user %}
+        <h3>Your Friends</h3>
+        <ul>
+        {% for friend in logged_in_friends %}
+            <li><a href="{% url 'profile' friend.username %}">{{ friend.username }}</a></li>
+        {% endfor %}
+        </ul>
+    {% endif %}
 </body>
 </html>

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
@@ -19,13 +20,42 @@ def register(request):
 
 @login_required
 def profile(request, username):
-    user = User.objects.get(username=username)
+    user = get_object_or_404(User, username=username)
     user_posts = Post.objects.filter(author=user)
+    profile = Profile.objects.get(user=user)
+    is_friend = False
+    if profile.friends.filter(id=request.user.id).exists():
+        is_friend = True
+
+    # Get the profile of the logged-in user
+    logged_in_profile = Profile.objects.get(user=request.user)
+    
     context = {
         'user': user,
-        'user_posts': user_posts,  # Add user's posts to the context
+        'user_posts': user_posts,
+        'profile': profile,
+        'is_friend': is_friend,
+        'logged_in_friends': logged_in_profile.friends.all(),
     }
     return render(request, 'profile.html', context)
+
+@login_required
+def follow(request, username):
+    user_to_follow = get_object_or_404(User, username=username)
+    user_profile = Profile.objects.get(user=request.user)
+    user_to_follow_profile = Profile.objects.get(user=user_to_follow)
+    user_profile.friends.add(user_to_follow)
+    user_to_follow_profile.friends.add(request.user)
+    return redirect('profile', username=username)
+
+@login_required
+def unfollow(request, username):
+    user_to_unfollow = get_object_or_404(User, username=username)
+    user_profile = Profile.objects.get(user=request.user)
+    user_to_unfollow_profile = Profile.objects.get(user=user_to_unfollow)
+    user_profile.friends.remove(user_to_unfollow)
+    user_to_unfollow_profile.friends.remove(request.user)
+    return redirect('profile', username=username)
 
 @login_required
 def dashboard(request):

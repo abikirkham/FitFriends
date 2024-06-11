@@ -5,6 +5,7 @@
 </head>
 <body>
     <h2>Dashboard</h2>
+    <a href="{% url 'logout' %}">Logout</a>
     <form method="post">
         {% csrf_token %}
         <input type="text" name="title" placeholder="Title">
@@ -14,7 +15,7 @@
     <ul>
     {% for post in posts %}
         <li>
-            <strong>{{ post.title }}</strong> by {{ post.author.username }} on {{ post.created_at|date:"F d, Y H:i" }}<br>
+            <strong><a href="{% url 'profile' post.author.username %}">{{ post.title }}</a></strong> by <a href="{% url 'profile' post.author.username %}">{{ post.author.username }}</a> on {{ post.created_at|date:"F d, Y H:i" }}<br>
             {{ post.content }}<br>
             <form method="post">
                 {% csrf_token %}

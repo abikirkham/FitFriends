@@ -54,6 +54,7 @@ def unfollow(request, username):
     user_to_unfollow_profile.friends.remove(request.user)
     return redirect('profile', username=username)
 
+
 @login_required
 def dashboard(request):
     if request.method == 'POST':
@@ -74,7 +75,8 @@ def dashboard(request):
                 like.delete()
         return redirect('dashboard')  # Redirect to the dashboard page after processing the form
 
-    posts = Post.objects.all()
+    # Fetch posts ordered by creation date in descending order
+    posts = Post.objects.order_by('-created_at')
     return render(request, 'dashboard.html', {'posts': posts})
 
 @login_required
@@ -83,3 +85,5 @@ def view_messages(request):
     messages_received = Message.objects.filter(receiver=user)
     messages_sent = Message.objects.filter(sender=user)
     return render(request, 'messages.html', {'messages_received': messages_received, 'messages_sent': messages_sent})
+
+

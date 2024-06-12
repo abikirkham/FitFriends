@@ -14,23 +14,17 @@
         <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     </head>
 <body>
-    <header>
-        <!--Nav-->
-        <div class="container-fluid nav-box">
-            <nav class="navbar navbar-dark navbar-expand-sm">
-                <a href="/" class="navbar-brand">Fit Friends</a>
-                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="active nav-item mr-2"><a class="nav-link" href="/">Home</a></li>
-                        <li class="nav-item mr-2"><a class="nav-link" href="about.html">About</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'dashboard' %}">Fit Friends</a>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+        </li>
+    </ul>
+</nav>
     <div class="container">
         <h2 class="mt-5 mb-4">Login</h2>
         <form method="POST">

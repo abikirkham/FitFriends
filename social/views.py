@@ -1,12 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
-from .models import Post, Profile, Message
-from .models import Post, Like, Comment
-
+from .forms import UserRegisterForm
+from .models import Post, Profile, Message, Like, Comment
 
 def register(request):
     if request.method == 'POST':
@@ -25,9 +22,7 @@ def profile(request, username):
     user = get_object_or_404(User, username=username)
     user_posts = Post.objects.filter(author=user)
     profile = Profile.objects.get(user=user)
-    is_friend = False
-    if profile.friends.filter(id=request.user.id).exists():
-        is_friend = True
+    is_friend = profile.friends.filter(id=request.user.id).exists()
 
     # Get the profile of the logged-in user
     logged_in_profile = Profile.objects.get(user=request.user)
@@ -83,7 +78,7 @@ def dashboard(request):
     return render(request, 'dashboard.html', {'posts': posts})
 
 @login_required
-def messages(request):
+def view_messages(request):
     user = request.user
     messages_received = Message.objects.filter(receiver=user)
     messages_sent = Message.objects.filter(sender=user)

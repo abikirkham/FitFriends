@@ -12,6 +12,10 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
+    def clean(self):
+        if len(self.bio) > 500:
+            raise ValidationError("Bio cannot exceed 500 characters")
+
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:

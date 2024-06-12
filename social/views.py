@@ -24,6 +24,13 @@ def profile(request, username):
     profile = Profile.objects.get(user=user)
     is_friend = profile.friends.filter(id=request.user.id).exists()
 
+    if request.method == 'POST':
+        # Update the user's bio if the form is submitted
+        bio = request.POST.get('bio')
+        profile.bio = bio
+        profile.save()
+        messages.success(request, 'Your bio has been updated!')
+
     # Get the profile of the logged-in user
     logged_in_profile = Profile.objects.get(user=request.user)
     
@@ -53,7 +60,6 @@ def unfollow(request, username):
     user_profile.friends.remove(user_to_unfollow)
     user_to_unfollow_profile.friends.remove(request.user)
     return redirect('profile', username=username)
-
 
 @login_required
 def dashboard(request):
@@ -85,5 +91,3 @@ def view_messages(request):
     messages_received = Message.objects.filter(receiver=user)
     messages_sent = Message.objects.filter(sender=user)
     return render(request, 'messages.html', {'messages_received': messages_received, 'messages_sent': messages_sent})
-
-

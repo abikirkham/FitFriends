@@ -1,18 +1,62 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-        {% load static %}
-        <link rel="stylesheet" href="{% static 'style.css' %}">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Abel&family=Montserrat:wght@200;300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        <title>Fit Friends Messages</title>
-        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Montserrat:wght@200;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Fit Friends Messages</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script>
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getCookie('csrftoken');
+
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+
+        $(document).ready(function() {
+            $('#message-form').on('submit', function(e) {
+                e.preventDefault();
+                var form = $(this);
+                $.ajax({
+                    type: 'POST',
+                    url: form.attr('action'),
+                    data: form.serialize(),
+                    success: function(response) {
+                        if (response.success) {
+                            var newMessage = '<div class="message ' + (response.sender == '{{ user.username }}' ? 'sent' : 'received') + '"><p>' + response.message + '</p><span>' + response.timestamp + '</span></div>';
+                            $('#conversation').append(newMessage);
+                            $('#content').val('');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</head>
 <body>
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" href="{% url 'dashboard' %}">Fit Friends</a>
@@ -29,20 +73,42 @@
         </ul>
     </nav>
     <div class="container">
-    <h2>Messages</h2>
-    <h3>Received Messages</h3>
-    <ul>
-    {% for message in messages_received %}
-        <li>From: {{ message.sender }} - {{ message.content }}</li>
-    {% endfor %}
-    </ul>
-
-    <h3>Sent Messages</h3>
-    <ul>
-    {% for message in messages_sent %}
-        <li>To: {{ message.receiver }} - {{ message.content }}</li>
-    {% endfor %}
-    </ul>
-</div>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Friends</h3>
+                <ul class="list-group">
+                    {% for friend in friends %}
+                        <li class="list-group-item">
+                            <a href="{% url 'messages' %}?username={{ friend.username }}">{{ friend.username }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-8">
+                {% if selected_friend %}
+                    <h3>Conversation with {{ selected_friend.username }}</h3>
+                    <div id="conversation" style="max-height: 400px; overflow-y: scroll;">
+                        {% for message in conversation %}
+                            <div class="message {% if message.sender == user %}sent{% else %}received{% endif %}">
+                                <p>{{ message.content }}</p>
+                                <span>{{ message.created_at }}</span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <form id="message-form" method="POST" action="{% url 'send_message' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="receiver" value="{{ selected_friend.username }}">
+                        <div class="form-group">
+                            <label for="content">Message:</label>
+                            <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                {% else %}
+                    <h3>Select a friend to start messaging</h3>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </body>
 </html>

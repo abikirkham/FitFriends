@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import UserRegisterForm
 from .models import Post, Profile, Message, Like, Comment
+from django.http import JsonResponse
+from django.db.models import Q
 
 def register(request):
     if request.method == 'POST':
@@ -94,6 +96,40 @@ def dashboard(request):
 @login_required
 def view_messages(request):
     user = request.user
-    messages_received = Message.objects.filter(receiver=user)
-    messages_sent = Message.objects.filter(sender=user)
-    return render(request, 'messages.html', {'messages_received': messages_received, 'messages_sent': messages_sent})
+    selected_username = request.GET.get('username')
+    
+    if selected_username:
+        selected_friend = get_object_or_404(User, username=selected_username)
+        conversation = Message.objects.filter(
+            Q(sender=user, receiver=selected_friend) | Q(sender=selected_friend, receiver=user)
+        ).order_by('created_at')
+    else:
+        selected_friend = None
+        conversation = []
+
+    friends = user.profile.friends.all()
+    context = {
+        'user': user,
+        'friends': friends,
+        'selected_friend': selected_friend,
+        'conversation': conversation,
+    }
+    return render(request, 'messages.html', context)
+
+@login_required
+def send_message(request):
+    if request.method == 'POST':
+        receiver_username = request.POST.get('receiver')
+        receiver = get_object_or_404(User, username=receiver_username)
+        content = request.POST.get('content')
+        
+        if content:
+            message = Message.objects.create(sender=request.user, receiver=receiver, content=content)
+            return JsonResponse({
+                'success': True,
+                'message': message.content,
+                'timestamp': message.created_at.strftime('%Y-%m-%d %H:%M:%S'),
+                'sender': message.sender.username
+            })
+        
+    return JsonResponse({'success': False})

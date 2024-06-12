@@ -129,7 +129,8 @@ def send_message(request):
                 'success': True,
                 'message': message.content,
                 'timestamp': message.created_at.strftime('%Y-%m-%d %H:%M:%S'),
-                'sender': message.sender.username
+                'sender': message.sender.username,
+                'sender_name': message.sender.username
             })
         
     return JsonResponse({'success': False})

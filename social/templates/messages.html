@@ -47,7 +47,7 @@
                     data: form.serialize(),
                     success: function(response) {
                         if (response.success) {
-                            var newMessage = '<div class="message ' + (response.sender == '{{ user.username }}' ? 'sent' : 'received') + '"><p>' + response.message + '</p><span>' + response.timestamp + '</span></div>';
+                            var newMessage = '<div class="message ' + (response.sender == '{{ user.username }}' ? 'sent' : 'received') + '"><strong>' + response.sender_name + ':</strong> <p>' + response.message + '</p><span>' + response.timestamp + '</span></div>';
                             $('#conversation').append(newMessage);
                             $('#content').val('');
                         }
@@ -90,8 +90,9 @@
                     <div id="conversation" style="max-height: 400px; overflow-y: scroll;">
                         {% for message in conversation %}
                             <div class="message {% if message.sender == user %}sent{% else %}received{% endif %}">
-                                <p>{{ message.content }}</p>
+                                <strong>{{ message.sender.username }}:</strong>
                                 <span>{{ message.created_at }}</span>
+                                <p>{{ message.content }}</p>
                             </div>
                         {% endfor %}
                     </div>

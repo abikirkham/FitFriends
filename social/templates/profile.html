@@ -33,11 +33,11 @@
 </div>
     </header>
 <div class="container">
-    <h2 class="mt-3">{{ user.username }}'s Profile</h2>
+    <h2 class="mt-3 text-white">{{ user.username }}'s Profile</h2>
     <form method="post">
         {% csrf_token %}
         <div class="form-group">
-            <label for="bio">Bio:</label>
+            <label class="text-white" for="bio">Bio:</label>
             <textarea class="form-control" id="bio" name="bio" rows="3">{{ profile.bio }}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">Save Bio</button>
@@ -52,7 +52,7 @@
         </div>
     {% endif %}
 
-    <h3 class="mt-3">Posts</h3>
+    <h3 class="mt-3 text-white">Posts</h3>
     <ul class="list-group">
         {% for post in user_posts %}
             <li class="list-group-item">
@@ -62,7 +62,7 @@
         {% endfor %}
     </ul>
 
-    <h3 class="mt-3">Friends</h3>
+    <h3 class="mt-3 text-white">Friends</h3>
     <ul class="list-group">
         {% for friend in profile.friends.all %}
             <li class="list-group-item"><a href="{% url 'profile' friend.username %}">{{ friend.username }}</a></li>
@@ -70,7 +70,7 @@
     </ul>
 
     {% if user != request.user %}
-        <h3 class="mt-3">Your Friends</h3>
+        <h3 class="mt-3 text-white">Your Friends</h3>
         <ul class="list-group">
             {% for friend in logged_in_friends %}
                 <li class="list-group-item"><a href="{% url 'profile' friend.username %}">{{ friend.username }}</a></li>
@@ -78,7 +78,7 @@
         </ul>
     {% endif %}
     </div>
-    <footer class="footer-styles">
+    <footer class="text-white">
         @ 2024 Fit Friends | A WiP project by Abi Kirkham
     </footer>
 </body>

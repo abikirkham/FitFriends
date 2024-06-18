@@ -33,8 +33,8 @@
 </div>
     </header>
     <div class="container mt-5">
-        <h2>Dashboard</h2>
-        <h3>Post an update to your fit friends</h3>
+        <h2 class="text-white">Dashboard</h2>
+        <h3 class="text-white">Post an update to your fit friends</h3>
         <form method="post">
             {% csrf_token %}
             <div class="form-group">
@@ -45,7 +45,7 @@
             </div>
             <button type="submit" class="btn btn-primary" name="post_status">Post Status</button>
         </form>
-        <h4>Posts</h4>
+        <h4 class="text-white">Posts</h4>
         <ul class="list-group">
             {% for post in posts %}
                 <li class="list-group-item">
@@ -68,7 +68,7 @@
             {% endfor %}
         </ul>
     </div>
-    <footer class="footer-styles">
+    <footer class="text-white">
         @ 2024 Fit Friends | A WiP project by Abi Kirkham
     </footer>
 </body>

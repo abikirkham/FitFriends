@@ -81,8 +81,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4">
-                <h3>Friends</h3>
-                <ul class="list-group">
+                <h3 class="text-white">Friends</h3>
+                <ul class="list-group text-white">
                     {% for friend in friends %}
                         <li class="list-group-item">
                             <a href="{% url 'messages' %}?username={{ friend.username }}">{{ friend.username }}</a>
@@ -92,7 +92,7 @@
             </div>
             <div class="col-md-8">
                 {% if selected_friend %}
-                    <h3>Conversation with {{ selected_friend.username }}</h3>
+                    <h3 class="text-white">Conversation with {{ selected_friend.username }}</h3>
                     <div id="conversation" style="max-height: 400px; overflow-y: scroll;">
                         {% for message in conversation %}
                             <div class="message {% if message.sender == user %}sent{% else %}received{% endif %}">
@@ -106,18 +106,18 @@
                         {% csrf_token %}
                         <input type="hidden" name="receiver" value="{{ selected_friend.username }}">
                         <div class="form-group">
-                            <label for="content">Message:</label>
+                            <label class="text-white" for="content">Message:</label>
                             <textarea class="form-control" id="content" name="content" rows="3"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Send</button>
                     </form>
                 {% else %}
-                    <h3>Select a friend to start messaging</h3>
+                    <h3 class="text-white">Select a friend to start messaging</h3>
                 {% endif %}
             </div>
         </div>
     </div>
-    <footer class="footer-styles">
+    <footer class="text-white">
         @ 2024 Fit Friends | A WiP project by Abi Kirkham
     </footer>
 </body>

@@ -112,7 +112,7 @@ Start
 - BULMA
 - HEROKU
 - NEON
-- CLOUDINARY
+- WHITENOISE
 
 ## Set up
 https://docs.djangoproject.com/en/dev/intro/tutorial01/ - understand set up

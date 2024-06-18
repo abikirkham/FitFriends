@@ -13,20 +13,25 @@
     <title>Fit Friends</title>
 </head>
 <body>
-    <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="{% url 'dashboard' %}">Fit Friends</a>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'profile' user.username %}">My Profile</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'messages' %}">Messages</a>
-            </li>
+    <header>
+        <!--Nav-->
+        <div class="container-fluid nav-box">
+        <nav class="navbar navbar-dark navbar-expand-sm">
+        <a href="{% url 'dashboard' %}" class="navbar-brand">Fit Friends</a>
+                    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span></button>
+                
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+        <ul class="navbar-nav mr-auto">
+            <li class="active nav-item mr-2"><a class="nav-link" href="{% url 'profile' user.username %}">My Profile</a></li>
+            <li class=" active nav-item mr-2"><a class="nav-link" href="{% url 'messages' %}">Messages</a></li>
+            <li class=" active nav-item mr-2"><a class="nav-link" href="{% url 'logout' %}">LogOut</a></li>
         </ul>
+    </div>
     </nav>
+</div>
+    </header>
     <div class="container mt-5">
         <h2>Dashboard</h2>
         <h3>Post an update to your fit friends</h3>

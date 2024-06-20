@@ -11,22 +11,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Montserrat:wght@200;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Fit Friends</title>
-    <style>body {
-        font-family: 'Montserrat', sans-serif;
-        background-color: #101809;
-    }
-    .img-custom {
-        border-radius: 8px;
-        background-color: rgba(0, 0, 0, 0.1); /* Light shaded background */
-        padding: 10px; /* Optional: to add some space between the image and the background */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: to add a shadow effect */
-    }
-    
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #101809;
+            color: #ffffff;
+        }
+        .img-custom {
+            border-radius: 8px;
+            padding: 10px;
+            max-height: 400px;
+        }
+        .description, .features {
+            padding: 2rem 0;
+        }
+        .features .card {
+            border: none;
+            background: none;
+        }
+        .carousel-indicators li {
+            background-color: #ffffff;
+        }
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: #000000;
+        }
     </style>
 </head>
 <body class="d-flex flex-column min-vh-100 bg-dark text-white">
     <header>
-        <!--Nav-->
         <div class="container-fluid nav-box">
             <nav class="navbar navbar-dark navbar-expand-sm sticky-top">
                 <a href="/" class="navbar-brand">Fit Friends</a>
@@ -40,67 +53,69 @@
                     </ul>
                 </div>
                 <div class="d-none d-md-block">
-                    <p class="navbar-text text-white my-auto mr-2"><i>Try out your free profile today!</i></p>
+                    <p class="navbar-text text-dark my-auto mr-2"><i>Try out your free profile today!</i></p>
                     <a class="btn btn-success btn-sm" href="#" role="button" data-toggle="modal" data-target="#signupModal">Sign Up</a>
                 </div>
             </nav>
         </div>
     </header>
     <hr>
-        <section class="description">
+    <main>
+        <section class="description bg-dark">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="text-center mb-4 text-white">Welcome to Fit Friends</h2>
-                        <p class="lead text-center text-white">Fit Friends is more than just a social network; it's a vibrant community dedicated to connecting individuals with a passion for fitness and well-being. Whether you're an avid athlete, a gym enthusiast, or someone just starting their fitness journey, Fit Friends is your platform to meet like-minded individuals who share your interests and goals.</p>
-                        <p class="text-center text-white">With Fit Friends, you can:</p>
-                        <ul class="list-unstyled text-center text-white">
+                        <h2 class="text-center mb-4">Welcome to Fit Friends</h2>
+                        <p class="lead text-center">Fit Friends is more than just a social network; it's a vibrant community dedicated to connecting individuals with a passion for fitness and well-being. Whether you're an avid athlete, a gym enthusiast, or someone just starting their fitness journey, Fit Friends is your platform to meet like-minded individuals who share your interests and goals.</p>
+                        <p class="text-center">With Fit Friends, you can:</p>
+                        <ul class="list-unstyled text-center">
                             <li>Discover new fitness buddies who enjoy the same activities as you.</li>
                             <li>Arrange meetups to engage in your favorite sports or workouts together.</li>
                             <li>Share valuable tips, insights, and motivational stories to inspire others.</li>
                             <li>Connect with individuals who understand your fitness journey and provide support and encouragement.</li>
                         </ul>
-                        <p class="text-center text-white">Join our community today and embark on your fitness journey surrounded by supportive friends who share your passion!</p>
+                        <p class="text-center">Join our community today and embark on your fitness journey surrounded by supportive friends who share your passion!</p>
                     </div>
                 </div>
             </div>
         </section>
         <hr>
         <section class="features">
-            <div class="row">
-                <div class="col-12 my-5">
-                    <h2 class="text-uppercase text-white">Features:</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                    <div class="card bg-dark text-white">
-                        <div class="card-body">
-                            <h3 class="card-title"><i class="fas fa-gift d-none d-sm-inline"></i> Status Posting <span class="badge badge-success">New!</span></h3>
-                            <p class="card-text">Share your thoughts, ask questions, or post updates to connect with other fitness enthusiasts.</p>
-                        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 my-5">
+                        <h2 class="text-uppercase text-center">Features:</h2>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-4">
-                    <div class="card bg-dark text-white">
-                        <div class="card-body">
-                            <h3 class="card-title"><i class="fas fa-credit-card d-none d-sm-inline"></i> Private Messaging</h3>
-                            <p class="card-text">Send private messages to your Fit Friends to discuss fitness goals, tips, and motivations.</p>
+                <div class="row bg-dark">
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h3 class="card-title"><i class="fas fa-gift d-none d-sm-inline"></i> Status Posting <span class="badge badge-success">New!</span></h3>
+                                <p class="card-text">Share your thoughts, ask questions, or post updates to connect with other fitness enthusiasts.</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-lg-4 mb-4">
-                    <div class="card bg-dark text-white">
-                        <div class="card-body">
-                            <h3 class="card-title"><i class="fas fa-times-circle d-none d-sm-inline"></i> Personal Profile</h3>
-                            <p class="card-text">Create your personal profile to showcase your fitness journey, view your posts, and update your biography section.</p>
+                    <div class="col-12 col-md-6 col-lg-4 mb-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h3 class="card-title"><i class="fas fa-credit-card d-none d-sm-inline"></i> Private Messaging</h3>
+                                <p class="card-text">Send private messages to your Fit Friends to discuss fitness goals, tips, and motivations.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4 mb-4">
+                        <div class="card text-center">
+                            <div class="card-body">
+                                <h3 class="card-title"><i class="fas fa-times-circle d-none d-sm-inline"></i> Personal Profile</h3>
+                                <p class="card-text">Create your personal profile to showcase your fitness journey, view your posts, and update your biography section.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Carousel -->
+        <hr>
         <section class="carousel-section">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -110,13 +125,13 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="https://github.com/abikirkham/FitFriends/assets/144112159/34b37a70-0b9f-4c9d-8cd4-6864f4f07d24" class="d-block mx-auto img-custom" alt="Fitness Image 1" style="max-width: 600px;">
+                        <img src="https://github.com/abikirkham/FitFriends/assets/144112159/34b37a70-0b9f-4c9d-8cd4-6864f4f07d24" class="d-block mx-auto img-custom" alt="Fitness Image 1">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://github.com/abikirkham/FitFriends/assets/144112159/739d3514-add1-4ef2-8430-6bb73ea98fc6" class="d-block mx-auto img-custom" alt="Fitness Image 2" style="max-width: 600px;">
+                        <img src="https://github.com/abikirkham/FitFriends/assets/144112159/739d3514-add1-4ef2-8430-6bb73ea98fc6" class="d-block mx-auto img-custom" alt="Fitness Image 2">
                     </div>
                     <div class="carousel-item">
-                        <img src="https://github.com/abikirkham/FitFriends/assets/144112159/5c06dae4-0719-4721-b21e-105b3b57c346" class="d-block mx-auto img-custom" alt="Fitness Image 3" style="max-width: 600px;">
+                        <img src="https://github.com/abikirkham/FitFriends/assets/144112159/5c06dae4-0719-4721-b21e-105b3b57c346" class="d-block mx-auto img-custom" alt="Fitness Image 3">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

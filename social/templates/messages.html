@@ -56,26 +56,71 @@
             });
         });
     </script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .navbar-transparent {
+            background-color: transparent !important;
+        }
+        .navbar-brand {
+            font-family: 'Abel', sans-serif;
+            font-size: 1.5rem;
+            color: #343a40;
+        }
+        .navbar-nav .nav-link {
+            color: #343a40;
+        }
+        .container h2, .container h3, .container h4 {
+            color: #343a40;
+        }
+        .list-group-item {
+            background-color: #fff;
+            border: 1px solid #dee2e6;
+            margin-bottom: 0.5rem;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+        .message.sent {
+            text-align: right;
+            background-color: #007bff;
+            color: #fff;
+        }
+        .message.received {
+            text-align: left;
+            background-color: #6c757d;
+            color: #fff;
+        }
+        .form-control {
+            border-color: #dee2e6;
+        }
+    </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
     <header>
-        <!--Nav-->
+        <!-- Nav -->
         <div class="container-fluid nav-box">
-        <nav class="navbar navbar-dark navbar-expand-sm">
-        <a href="{% url 'dashboard' %}" class="navbar-brand">Fit Friends</a>
-                    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span></button>
-                
-                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
-        <ul class="navbar-nav mr-auto">
-            <li class="active nav-item mr-2"><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
-            <li class=" active nav-item mr-2"><a class="nav-link" href="{% url 'profile' user.username %}">My Profile</a></li>
-            <li class=" active nav-item mr-2"><a class="nav-link" href="{% url 'logout' %}">LogOut</a></li>
-        </ul>
-    </div>
-    </nav>
-</div>
+            <nav class="navbar navbar-light navbar-expand-sm navbar-transparent">
+                <a href="{% url 'dashboard' %}" class="navbar-brand text-white">Fit Friends</a>
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'profile' user.username %}">My Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">LogOut</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </header>
     <div class="container">
         <div class="row">

@@ -79,27 +79,35 @@ def unfollow(request, username):
     user_to_unfollow_profile.friends.remove(request.user)
     return redirect('profile', username=username)
 
+
 @login_required
 def dashboard(request):
     if request.method == 'POST':
         if 'post_status' in request.POST:
-            title = request.POST.get('title')
-            content = request.POST.get('content')
-            Post.objects.create(title=title, content=content, author=request.user)
+            content = request.POST.get('content', '').strip()
+            if content:
+                Post.objects.create(content=content, author=request.user)
+            else:
+                pass
+
         elif 'post_comment' in request.POST:
             post_id = request.POST.get('post_id')
-            content = request.POST.get('content')
-            post = Post.objects.get(id=post_id)
-            Comment.objects.create(post=post, content=content, author=request.user)
+            content = request.POST.get('content', '').strip()
+            if content:
+                post = Post.objects.get(id=post_id)
+                Comment.objects.create(post=post, content=content, author=request.user)
+            else:
+                pass
+
         elif 'like_post' in request.POST:
             post_id = request.POST.get('post_id')
             post = Post.objects.get(id=post_id)
             like, created = Like.objects.get_or_create(post=post, user=request.user)
             if not created:
                 like.delete()
-        return redirect('dashboard')  # Redirect to the dashboard page after processing the form
 
-    # Fetch posts ordered by creation date in descending order
+        return redirect('dashboard')
+        
     posts = Post.objects.order_by('-created_at')
     return render(request, 'dashboard.html', {'posts': posts})
 

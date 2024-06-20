@@ -1,7 +1,4 @@
 body{
-    font-family: "Abel", sans-serif;
-    font-weight: 400;
-    font-style: normal;
     height: 100vh;
     background: url('../images/logo.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -125,11 +122,4 @@ body{
     font-weight: bold;
     color: whitesmoke;
     margin-bottom: 30px;
-}
-
-/* Footer */
-
-.footer-styles {
-    padding: 20px;
-    text-align: center;
 }

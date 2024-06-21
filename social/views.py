@@ -80,7 +80,6 @@ def unfollow(request, username):
     return redirect('profile', username=username)
 
 
-
 @login_required
 def dashboard(request):
     if request.method == 'POST':
@@ -88,27 +87,29 @@ def dashboard(request):
             content = request.POST.get('content', '').strip()
             if content:
                 Post.objects.create(content=content, author=request.user)
+            else:
+                pass
 
         elif 'post_comment' in request.POST:
             post_id = request.POST.get('post_id')
             content = request.POST.get('content', '').strip()
             if content:
-                post = get_object_or_404(Post, id=post_id)
-                comment = Comment.objects.create(post=post, content=content, author=request.user)
-                return JsonResponse({
-                    'comment_content': comment.content,
-                    'comment_author': comment.author.username,
-                    'comment_created_at': comment.created_at.strftime('%Y-%m-%d %H:%M:%S')
-                })
+                post = Post.objects.get(id=post_id)
+                Comment.objects.create(post=post, content=content, author=request.user)
+            else:
+                pass
 
+        elif 'like_post' in request.POST:
+            post_id = request.POST.get('post_id')
+            post = Post.objects.get(id=post_id)
+            like, created = Like.objects.get_or_create(post=post, user=request.user)
+            if not created:
+                like.delete()
+
+        return redirect('dashboard')
+        
     posts = Post.objects.order_by('-created_at')
     return render(request, 'dashboard.html', {'posts': posts})
-
-@login_required
-def get_comments(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
-    comments = post.comments.all().values('content', 'author__username', 'created_at')
-    return JsonResponse(list(comments), safe=False)
 
 def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)

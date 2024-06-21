@@ -79,14 +79,12 @@
                             <button type="button" class="btn btn-outline-primary btn-sm btn-custom" data-toggle="modal" data-target="#commentsModal">
                                 Comments
                             </button>
-                                                        
-
                             <form method="post">
                                 {% csrf_token %}
                                 <input type="hidden" name="post_id" value="{{ post.id }}">
-                                <button type="submit" class="btn {% if request.user in post.likes.all %}btn-success{% else %}btn-outline-primary{% endif %} btn-sm">
+                                <button type="submit" class="btn {% if request.user in post.likes.all %}btn-success{% else %}btn-outline-primary{% endif %} btn-sm" aria-label="{% if request.user in post.likes.all %}Unlike{% else %}Like{% endif %}">
                                     <i class="far fa-thumbs-up"></i> {% if request.user in post.likes.all %}Unlike{% else %}Like{% endif %}
-                                </button>                        
+                                </button>
                             </form>
                         </div>
                     </div>

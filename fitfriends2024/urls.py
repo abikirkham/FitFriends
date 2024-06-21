@@ -33,4 +33,3 @@ urlpatterns = [
     path('messages/', views.view_messages, name='messages'),
     path('send_message/', views.send_message, name='send_message'),
 ]
-

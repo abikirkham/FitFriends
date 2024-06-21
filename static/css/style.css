@@ -30,7 +30,6 @@ body{
 .navbar {
     margin-bottom: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     border: 0;
 }
 
@@ -59,7 +58,7 @@ body{
     align-items: center;
     justify-content: center;
 
-    position: fixed;
+    position: relative;
 
 }
 .opaque-overlay {
@@ -112,15 +111,11 @@ body{
 }
 
 .jumbotron h1 {
-    color: whitesmoke;
-    font-weight: bold;
     margin-bottom: 30px;
 }
 
 .jumbotron-small {
     font-style: italic;
     font-size: larger;
-    font-weight: bold;
-    color: whitesmoke;
     margin-bottom: 30px;
 }

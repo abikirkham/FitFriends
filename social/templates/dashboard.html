@@ -71,19 +71,16 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-md-8 text-dark">
-                            <strong><a href="{% url 'profile' post.author.username %}">{{ post.title }}</a></strong><br>
                             <small><a href="{% url 'profile' post.author.username %}">{{ post.author.username }}</a> on {{ post.created_at|date:"F d, Y H:i" }}</small><br>
                             {{ post.content }}
                         </div>
                         <div class="col-md-4">
-                            <form method="post">
-                                {% csrf_token %}
-                                <input type="hidden" name="post_id" value="{{ post.id }}">
-                                <div class="form-group mb-3">
-                                    <textarea class="form-control" name="content" rows="2" placeholder="Write a comment..."></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-outline-primary btn-sm mt-2" name="post_comment">Post Comment</button>
-                            </form>
+
+                            <button type="button" class="btn btn-outline-primary btn-sm btn-custom" data-toggle="modal" data-target="#commentsModal">
+                                Comments
+                            </button>
+                                                        
+
                             <form method="post">
                                 {% csrf_token %}
                                 <input type="hidden" name="post_id" value="{{ post.id }}">
@@ -96,8 +93,32 @@
                 </li>
             {% endfor %}
         </ul>
-        
     </div>
+
+    <!-- Modal -->
+<div class="modal fade" id="commentsModal" tabindex="-1" role="dialog" aria-labelledby="commentsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="commentsModalLabel">Comments</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="post_id" value="{{ post.id }}">
+                <div class="modal-body form-group mb-3">
+                    <textarea class="form-control" name="content" rows="2" placeholder="Write a comment..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-outline-primary btn-sm mt-2" name="post_comment">Post Comment</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div></div>
     <footer class="text-white text-center p-3 mt-auto">
         <div class="container">
             <span class="text-muted">@ 2024 Fit Friends | A WiP project by Abi Kirkham</span>

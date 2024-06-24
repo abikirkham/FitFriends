@@ -10,13 +10,10 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+
+    position: relative;
 }
 
-.container {
-    width: auto;
-    max-width: 680px;
-    padding: 0 15px;
-}
 /* Navbar */
 
 .nav-box {
@@ -41,25 +38,9 @@ body{
     font-size: xx-large;
 }
 
-.navbar .navbar-nav a {
-    font-weight: bold;
-}
-
 /* Callout */
 .callout-container {
-    height: 100vh;
-    background: url('../images/logo.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-
-    display: flex;
     align-items: center;
-    justify-content: center;
-
-    position: relative;
-
 }
 .opaque-overlay {
     position: absolute;

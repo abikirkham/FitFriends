@@ -10,13 +10,10 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+
+    position: relative;
 }
 
-.container {
-    width: auto;
-    max-width: 680px;
-    padding: 0 15px;
-}
 /* Navbar */
 
 .nav-box {
@@ -30,7 +27,6 @@ body{
 .navbar {
     margin-bottom: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
     border: 0;
 }
 
@@ -42,19 +38,10 @@ body{
     font-size: xx-large;
 }
 
-.navbar .navbar-nav a {
-    font-weight: bold;
-}
-
 /* Callout */
 .callout-container {
-    display: flex;
     align-items: center;
-    justify-content: center;
-    position: relative;
-    text-align: center; /* Ensure text is centered */
 }
-
 .opaque-overlay {
     position: absolute;
     top: 0;

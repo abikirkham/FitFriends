@@ -17,18 +17,16 @@
             background-color: #101809;
         }
         .navbar-transparent {
-            background-color: transparent !important;
+            background-color: transparent;
         }
         .navbar-nav .nav-link {
             color: #343a40;
         }
-        .container h2, .container h3, .container h4 {
-            color: #343a40;
-        }
         .list-group-item {
             background-color: #fff;
-            border: 1px solid #dee2e6;
             margin-bottom: 0.5rem;
+            width: 200px;
+            border-radius: 8px;
         }
         .message {
             margin-bottom: 10px;
@@ -54,6 +52,26 @@
         .form-control {
             border-color: #dee2e6;
         }
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 900px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #101809;
+            height: 87vh;
+        }
+        .custom-textarea {
+        width: 800px;
+        max-width: 1200px;
+        }
     </style>
 </head>
 <body class="d-flex flex-column min-vh-100"><div class="background-container">
@@ -76,7 +94,6 @@
         </div>
     </header>
     <div class="container mt-5 pt-3">
-    <div class="container">
         <div class="row">
             <div class="col-md-4">
                 <h3 class="text-white">Friends</h3>
@@ -87,10 +104,10 @@
                         </li>
                     {% endfor %}
                 </ul>
-            </div>
+            </div><hr>
             <div class="col-md-8">
                 {% if selected_friend %}
-                    <h3 class="text-white">Conversation with {{ selected_friend.username }}</h3>
+                    <h5 class="text-dark">Conversation with {{ selected_friend.username }}</h5>
                     <div id="conversation" style="max-height: 400px; overflow-y: scroll;">
                         {% for message in conversation %}
                             <div class="message {% if message.sender == user %}sent{% else %}received{% endif %}">
@@ -110,11 +127,11 @@
                         <button type="submit" class="btn btn-primary">Send</button>
                     </form>
                 {% else %}
-                    <h3 class="text-dark bg-white">Select a friend to start messaging</h3>
+                    <h5 class="text-dark">Select a friend to start a conversation</h5>
                 {% endif %}
             </div>
         </div>
-    </div></div>
+    </div>
     <footer class="text-white text-center p-3 mt-auto">
         <div class="footer-container">
             <span class="text-muted">@ 2024 Fit Friends | A WiP project by Abi Kirkham</span>

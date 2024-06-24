@@ -26,12 +26,31 @@
             color: #343a40;
         }
         .list-group-item {
-            background-color: #fff;
             border-radius: 5px;
             margin-bottom: 0.5rem;
         }
         .list-group-item a {
             font-size: 1.2em;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 30px;
+            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 900px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #101809;
+        }
+        .custom-textarea {
+        width: 800px;
+        max-width: 1200px;
         }
     </style>
 </head>
@@ -61,11 +80,11 @@
         <form method="post">
             {% csrf_token %}
             <div class="form-group">
-                <textarea class="form-control" name="content" placeholder="Share your thoughts with your FitFriends"></textarea>
+                <textarea class="form-control custom-textarea" name="content" placeholder="Share your thoughts with your FitFriends"></textarea>
             </div>
             <button type="submit" class="btn btn-primary" name="post_status">Post Status</button>
         </form>
-        <br><br><br><br>
+        <br><br>
         <ul class="list-group">
             {% for post in posts %}
                 <li class="list-group-item">

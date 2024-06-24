@@ -16,6 +16,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    min-height: 100vh;
 }
 
 /* Navbar */
@@ -47,7 +48,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 50vh;
+    position: relative;
     padding: 20px;
     margin: 0 auto;
 }

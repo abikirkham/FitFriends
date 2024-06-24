@@ -64,8 +64,8 @@ body {
 /* Block dividers */
 
 .block-divider {
-    width: 75px;
-    height: 5px;
+    width: 90px;
+    height: 4px;
     border: 0;
     background-color: whitesmoke;
 }
@@ -75,7 +75,7 @@ body {
 }
 
 .block-divider--short {
-    width: 35px;
+    width: 90px;
 }
 
 /* Callout */

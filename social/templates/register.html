@@ -37,7 +37,7 @@
     </div>
         <div class="d-none d-md-block">
             <p class="navbar-text-dark my-auto mr-2"><i>Try out your free profile today!</i></p>
-            <a class="btn btn-success btn-sm" href="#" role="button" data-toggle="modal" data-target="#signupModal">Sign Up</a>
+            <a class="btn btn--green btn-sm" href="#" role="button" data-toggle="modal" data-target="#signupModal">Sign Up</a>
         </div>
     </nav>
 </div>
@@ -53,7 +53,7 @@
                             Find a gym buddy to help you stay motivated and reach your fitness goals. 
                             Find out more <a class="nav-link" href="{% url 'about' %}">here.</a>
                         </p>
-                        <a class="btn btn-success btn-lg" href="#" role="button" data-toggle="modal" data-target="#signupModal">Sign Up Now!</a>
+                        <a class="btn btn--green btn-lg" href="#" role="button" data-toggle="modal" data-target="#signupModal">Sign Up Now!</a>
                     </section>
                 </div>
             </div>
@@ -73,7 +73,7 @@
                         <form method="POST">
                             {% csrf_token %}
                             {{ form.as_p }}
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn--green">Submit</button>
                         </form>
                     </div>
                 </div>

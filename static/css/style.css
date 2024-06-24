@@ -44,41 +44,46 @@ body {
 }
 
 /* Callout */
-.callout-container {
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    background-color: rgba(255, 255, 255, 0.9); /* Optional: To make the form stand out against the background */
     padding: 20px;
-    margin: 0 auto;
-}
-.opaque-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+}
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.callout {
+    background-color: rgba(255, 255, 255, 0.9); /* Optional: To make the form stand out against the background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    width: 100%;
 }
 
 /* Block dividers */
 
 .block-divider {
-    width: 90px;
+    width: 500px;
     height: 4px;
     border: 0;
-    background-color: whitesmoke;
 }
 
 .block-divider--green {
     background-color: #b7ff6a;
+    
 }
 
-.block-divider--short {
-    width: 90px;
-}
 
-/* Callout */
+
 
 .btn--green {
     background-color: #b7ff6a;

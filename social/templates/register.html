@@ -13,8 +13,10 @@
     <title>Fit Friends Register</title>
     <style>body {
         font-family: 'Montserrat', sans-serif;
-        background-color: #f8f9fa;
-        color: #343a40;
+        background-color: #343a40;
+    }
+    .footer-container {
+        bottom: 0;
     }
     </style>
 </head>
@@ -43,12 +45,12 @@
 </div>
     </header>
     <main>
-        <div class="container-md callout-container mt-5 pt-3">
+        <div class="container-md login-container mt-5 pt-3">
             <div class="row">
                 <div class="col-12">
-                    <section class="callout jumbotron text-center">
+                    <section class="callout text-center">
                         <h1 class="jumbotron-header">Find a gym buddy</h1>
-                        <hr class="block-divider block-divider--green">
+                        <hr class="block-divider--green">
                         <p class="jumbotron-small">
                             Find a gym buddy to help you stay motivated and reach your fitness goals. 
                             Find out more <a class="nav-link" href="{% url 'about' %}">here.</a>
@@ -81,7 +83,7 @@
         </div>
     </main>
     <footer class="text-white text-center p-3 mt-auto">
-        <div class="container">
+        <div class="footer-container">
             <span class="text-muted">@ 2024 Fit Friends | A WiP project by Abi Kirkham</span>
         </div>
     </footer>

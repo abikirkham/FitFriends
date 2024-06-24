@@ -42,49 +42,10 @@ A social app used for gym goers who want to find friends to go to the gym with, 
 
 
 ## Flow chart 
-Start
-|
-|__Homepage
-|   |
-|   |__Signup Option
-|       |
-|       |__User provides: Username, Email, Password, Confirm Password
-|
-|__Login Page
-|   |
-|   |__Username
-|   |
-|   |__Password
-|   |
-|   |__Login Button
-|
-|__Dashboard (Logged in)
-|   |
-|   |__View all users posts
-|   |
-|   |__Access profile/messages/logout
-|
-|__Profile
-|   |
-|   |__Bio
-|   |
-|   |__Add friends/ view friends
-|   |
-|   |__View Users Posts
-|   |
-|   |__Access dashboard/messages/logout
-|
-|__Messages
-|   |
-|   |__See Friends List
-|   |
-|   |__Conversations
-|   |   
-|   |__Access dashboard/profile/logout
-|
-|__About (only accessible prior to login for new users)
-    |
-    |__Features with carousel images
+<img width="850" alt="FlowChart" src="https://github.com/abikirkham/FitFriends/assets/144112159/d94951a3-dfa9-4344-8ff1-9312b267aa30">
+
+Using: [Lucidchart Flowchart](https://lucid.app/lucidspark/9fbfecbb-4dd1-4c0a-8630-f0a85bd5505f/edit?beaconFlowId=644738E63C273F37&invitationId=inv_6a141c5b-80a3-42e5-890c-93dc1ef500d8&page=0_0)
+
 
 
 ## Technologies used 
@@ -99,7 +60,90 @@ Start
 - NEON
 - WHITENOISE / Clouidnary initially
 
-## Set up / Databases
+
+## Setup
+
+### DJANGO
+
+1. **Install Django** :
+pip install django
+
+2. **Create a Django project** :
+django-admin startproject myproject
+cd myproject
+
+
+### NEON
+
+1. **Install Neon**:
+pip install neon
+
+
+2. **Setup Neon**:
+- Create a `neon_settings.py` file in your Django project directory.
+- Configure your settings in this file using Neon's syntax for environment-based configuration. For example:
+  ```python
+  from neon import settings
+
+  settings.configure(
+      DEBUG=True,
+      DATABASES={
+          'default': {
+              'ENGINE': 'django.db.backends.sqlite3',
+              'NAME': 'mydatabase',
+          }
+      },
+      # Add other settings as needed
+  )
+  ```
+
+3. **Integrate Neon with Django settings**:
+Modify your `settings.py` to load settings from `neon_settings.py`:
+```python
+# settings.py
+from neon.contrib.django import get_neon_settings
+
+neon_settings = get_neon_settings()
+if neon_settings:
+    locals().update(neon_settings)
+```
+
+### Whitenoise
+1. **Install Whitenoise**:
+
+pip install whitenoise
+
+2. **Configure Whitenoise**:
+
+Add 'whitenoise.middleware.WhiteNoiseMiddleware', to the MIDDLEWARE list in your settings.py:
+
+```python
+MIDDLEWARE = [
+    # Other middleware classes
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+]
+```
+3. **Configure static file handling in settings.py**:
+
+```python
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+```
+
+4. **Final Steps**
+Collect static files:
+
+python manage.py collectstatic
+Run migrations:
+
+python manage.py migrate
+Start the Django development server:
+
+python manage.py runserver
+
+
 
 
 ## Features 

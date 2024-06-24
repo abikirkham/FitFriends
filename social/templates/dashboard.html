@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abel&family=Montserrat:wght@200;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <title>Fit Friends</title>
     <style>
         body {
@@ -36,7 +35,8 @@
         }
     </style>
 </head>
-<body class="d-flex flex-column min-vh-100"><div class="background-container">
+<body class="d-flex flex-column min-vh-100">
+<div class="background-container">
     <header>
         <!--Nav-->
         <div class="container-fluid">
@@ -75,7 +75,6 @@
                             {{ post.content }}
                         </div>
                         <div class="col-md-4">
-
                             <button type="button" class="btn btn-outline-primary btn-sm btn-custom" data-toggle="modal" data-target="#commentsModal">
                                 Comments
                             </button>
@@ -93,29 +92,30 @@
         </ul>
     </div>
     <!-- Modal -->
-<div class="modal fade" id="commentsModal" tabindex="-1" role="dialog" aria-labelledby="commentsModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="commentsModalLabel">Comments</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+    <div class="modal fade" id="commentsModal" tabindex="-1" role="dialog" aria-labelledby="commentsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="commentsModalLabel">Comments</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="post_id" value="{{ post.id }}">
+                    <div class="modal-body form-group mb-3">
+                        <textarea class="form-control" name="content" rows="2" placeholder="Write a comment..."></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-outline-primary btn-sm mt-2" name="post_comment">Post Comment</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
             </div>
-            <form method="post">
-                {% csrf_token %}
-                <input type="hidden" name="post_id" value="{{ post.id }}">
-                <div class="modal-body form-group mb-3">
-                    <textarea class="form-control" name="content" rows="2" placeholder="Write a comment..."></textarea>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-outline-primary btn-sm mt-2" name="post_comment">Post Comment</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </form>
         </div>
     </div>
-</div></div>
+    </div> 
     <footer class="text-white text-center p-3 mt-auto">
         <div class="container">
             <span class="text-muted">@ 2024 Fit Friends | A WiP project by Abi Kirkham</span>
@@ -125,5 +125,5 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-</div></body>
+</body>
 </html>

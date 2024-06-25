@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import UserRegisterForm
-from .models import Post, Profile, Message, Like, Comment
+from .models import Post, Profile, Message, Comment
 from django.http import JsonResponse
 from django.db.models import Q
 
@@ -98,13 +98,6 @@ def dashboard(request):
                 Comment.objects.create(post=post, content=content, author=request.user)
             else:
                 pass
-
-        elif 'like_post' in request.POST:
-            post_id = request.POST.get('post_id')
-            post = Post.objects.get(id=post_id)
-            like, created = Like.objects.get_or_create(post=post, user=request.user)
-            if not created:
-                like.delete()
 
         return redirect('dashboard')
         

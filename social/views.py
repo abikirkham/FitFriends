@@ -6,6 +6,7 @@ from .forms import UserRegisterForm
 from .models import Post, Profile, Message, Comment
 from django.http import JsonResponse
 from django.db.models import Q
+from django.views.decorators.http import require_POST
 
 def register(request):
     if request.method == 'POST':
@@ -103,6 +104,26 @@ def dashboard(request):
         
     posts = Post.objects.order_by('-created_at')
     return render(request, 'dashboard.html', {'posts': posts})
+
+@require_POST
+def like_post(request):
+    post_id = request.POST.get('post_id')
+    if post_id:
+        post = Post.objects.get(id=post_id)
+        post.like_count += 1
+        post.save()
+        return JsonResponse({'status': 'ok', 'like_count': post.like_count})
+    return JsonResponse({'status': 'error'})
+
+@require_POST
+def dislike_post(request):
+    post_id = request.POST.get('post_id')
+    if post_id:
+        post = Post.objects.get(id=post_id)
+        post.dislike_count += 1
+        post.save()
+        return JsonResponse({'status': 'ok', 'dislike_count': post.dislike_count})
+    return JsonResponse({'status': 'error'})
 
 def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)

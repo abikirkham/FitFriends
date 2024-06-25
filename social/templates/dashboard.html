@@ -96,13 +96,15 @@
                         <div class="col-md-4">
                             <button type="button" class="btn btn-outline-primary btn-sm btn-custom" data-toggle="modal" data-target="#commentsModal">
                                 Comments
+                            <!-- Like button -->
+                             <button type="button" class="btn btn-outline-primary btn-sm btn-custom" id="likeButton">
+                                <i class="far fa-thumbs-up"></i> Like <span id="likeCount">0</span>
                             </button>
-                            <form method="post">
-                                {% csrf_token %}
-                                <input type="hidden" name="post_id" value="{{ post.id }}">
-                                <button type="submit" class="btn {% if request.user in post.likes.all %}btn-success{% else %}btn-outline-primary{% endif %} btn-sm" aria-label="{% if request.user in post.likes.all %}Unlike{% else %}Like{% endif %}">
-                                    <i class="far fa-thumbs-up"></i> {% if request.user in post.likes.all %}Unlike{% else %}Like{% endif %}
-                                </button>
+                            <!-- Dislike button -->
+                             <button type="button" class="btn btn-outline-primary btn-sm btn-custom" id="dislikeButton">
+                                <i class="far fa-thumbs-down"></i> Dislike <span id="dislikeCount">0</span>
+                            </button>
+
                             </form>
                         </div>
                     </div>
@@ -144,5 +146,30 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-</body>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <!-- Your custom script -->
+    <script>
+      // JavaScript for handling like and dislike functionality
+      var likeCount = 0;
+      var dislikeCount = 0;
+  
+      // Function to update like count
+      function updateLikeCount() {
+        document.getElementById('likeCount').innerText = likeCount;
+      }
+  
+      // Handle like button click
+      document.getElementById('likeButton').addEventListener('click', function() {
+        likeCount++;
+        updateLikeCount();
+      });
+  
+      // Handle dislike button click
+      document.getElementById('dislikeButton').addEventListener('click', function() {
+        dislikeCount++;
+        document.getElementById('dislikeCount').innerText = dislikeCount;
+      });
+    </script>
+    </body>
 </html>

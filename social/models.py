@@ -5,7 +5,7 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    image = models.ImageField(default='default.jpg', upload_to='images')
     bio = models.TextField(max_length=500, blank=True)
     friends = models.ManyToManyField(User, related_name='friends', blank=True)
 

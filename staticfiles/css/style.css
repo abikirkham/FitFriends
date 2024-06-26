@@ -19,35 +19,11 @@ body {
     min-height: 100vh;
 }
 
-/* Navbar */
-
-.nav-box {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    padding-left: 0;
-    padding-right: 0;
-}
-.navbar {
-    margin-bottom: 0;
-    width: 100%;
-    border: 0;
-}
-
-.navbar .navbar-toggler {
-    border: 0;
-}
-
-.navbar .navbar-brand {
-    font-size: xx-large;
-}
-
 /* Callout */
 .container {
     display: flex;
     justify-content: center;
-    background-color: rgba(255, 255, 255, 0.9); /* Optional: To make the form stand out against the background */
+    background: rgba(242, 255, 232, 0.5); 
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -60,7 +36,7 @@ body {
     height: 85vh;
 }
 .callout {
-    background-color: rgba(255, 255, 255, 0.9); /* Optional: To make the form stand out against the background */
+    background: rgba(242, 255, 232, 0.5);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);

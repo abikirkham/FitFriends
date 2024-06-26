@@ -44,13 +44,13 @@ def profile(request, username):
     is_friend = profile.friends.filter(id=request.user.id).exists()
 
     if request.method == 'POST':
-        # Update the user's bio if the form is submitted
         bio = request.POST.get('bio')
         profile.bio = bio
+        if 'image' in request.FILES:
+            profile.image = request.FILES['image']
         profile.save()
-        messages.success(request, 'Your bio has been updated!')
+        messages.success(request, 'Your profile has been updated!')
 
-    # Get the profile of the logged-in user
     logged_in_profile = Profile.objects.get(user=request.user)
     
     context = {
@@ -61,6 +61,17 @@ def profile(request, username):
         'logged_in_friends': logged_in_profile.friends.all(),
     }
     return render(request, 'profile.html', context)
+
+def profile_view(request):
+    profile = request.user.profile
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile')
+    else:
+        form = ProfileForm(instance=profile)
+    return render(request, 'profile.html', {'form': form, 'profile': profile})
 
 @login_required
 def follow(request, username):

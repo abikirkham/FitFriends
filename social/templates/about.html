@@ -73,9 +73,9 @@
             border-color: #3c8444;
             color: white;
         }
-        #navbarNavDropdown {
+        .navbar-collapse {
             background: rgba(242, 255, 232, 0.5);
-            border-radius: 8px;
+            border-radius: 9px;
 
         }
         .navbar-toggler-icon {
@@ -86,9 +86,9 @@
 <body class="d-flex flex-column min-vh-100 bg-dark text-white">
 <div class="background-container">
     <header>
-        <div class="container-fluid nav-box">
-            <nav class="navbar navbar-dark navbar-expand-sm sticky-top">
-                <a href="/" class="navbar-brand">Fit Friends</a>
+        <div class="container-fluid">
+            <nav class="navbar navbar-light navbar-expand-sm navbar-transparent">
+                <a href="{% url 'dashboard' %}" class="navbar-brand text-white">Fit Friends</a>
                 <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -105,7 +105,6 @@
             </nav>
         </div>
     </header>
-<main>
     <div class="container mt-5 text-dark">
         <section class="description">
                 <div class="row">
@@ -189,7 +188,7 @@
                 </a>
             </div>
         </section>
-    </main>
+
     <footer class="text-white text-center p-3 mt-auto">
         <div class="footer-container">
             <span class="text-muted">@ 2024 Fit Friends | A WiP project by Abi Kirkham</span>

@@ -40,14 +40,13 @@
             justify-content: center;
             background: rgba(242, 255, 232, 0.5);
             padding: 30px;
-            margin-top: 20px;
+            margin-top: 40px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             width: 90%;
             max-width: 900px;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            color: #101809;
         }
 
         .custom-textarea {
@@ -105,23 +104,23 @@
 <body class="d-flex flex-column min-vh-100">
 <div class="background-container">
     <header>
-        <!-- Nav -->
-        <div class="container-fluid nav-box">
-            <nav class="navbar navbar-light navbar-expand-sm navbar-transparent">
-                <a href="{% url 'dashboard' %}" class="navbar-brand text-white">Fit Friends</a>
-                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
+                <!--Nav-->
+                <div class="container-fluid">
+                    <nav class="navbar navbar-light navbar-expand-sm navbar-transparent">
+                        <a href="{% url 'dashboard' %}" class="navbar-brand text-white">Fit Friends</a>
+                        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item"><a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'profile' request.user.username %}">My Profile</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'messages' %}">Messages</a></li>
                         <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">LogOut</a></li>
-                    </ul>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
-            </nav>
-        </div>
     </header>
         <div class="container mt-5 pt-3">
             <h2 class="text-white">{{ user.username }}</h2>

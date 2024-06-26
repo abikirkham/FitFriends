@@ -65,16 +65,14 @@
 <body class="d-flex flex-column min-vh-100"><div class="background-container">
     <header>
         <!--Nav-->
-        <div class="container-fluid nav-box">
-        <nav class="navbar navbar-dark navbar-expand-sm">
-        <a href="/" class="navbar-brand">
-                    Fit Friends</a>
-                    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span></button>
-                
-                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    
-        <ul class="navbar-nav mr-auto">
+        <div class="container-fluid">
+            <nav class="navbar navbar-light navbar-expand-sm navbar-transparent">
+                <a href="{% url 'dashboard' %}" class="navbar-brand text-white">Fit Friends</a>
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
             <li class=" active nav-item mr-2"><a class="nav-link" href="{% url 'register' %}">Home</a></li>
             <li class="active nav-item mr-2"><a class="nav-link" href="{% url 'about' %}">About</a></li>
         </ul>

@@ -28,10 +28,15 @@
         .container h2, .container h3, .container h4 {
             color: #343a40;
         }
-        .list-group-item {
+        .list-group-item a {
             background-color: #fff;
-            border: 1px solid #dee2e6;
             margin-bottom: 0.5rem;
+            color: rgb(54, 54, 54);
+            text-decoration: none;
+            font-weight: bolder;
+        }
+        .list-group-item a:hover {
+            color: #749a4c;
         }
         .message {
             margin-bottom: 10px;
@@ -42,14 +47,14 @@
         .message.sent {
             text-align: right;
             background-color: #a0d06d;
-            color: slategray;
+            color: rgb(54, 54, 54);
             margin-left: 80px;
             margin-top: 10px;
         }
         .message.received {
             text-align: left;
             background-color: #eaffea;
-            color: slategray;
+            color: rgb(54, 54, 54);
             margin-right: 80px;
             margin-top: 10px;
         }
@@ -94,6 +99,20 @@
                 max-width: 700px;
             }
         }
+        .btn--green {
+    background-color: #b7ff6a;
+    border-radius: 23px;
+    border: 1px solid #b7ff6a;
+    max-width: fit-content;
+    }
+    .btn--green:hover,
+    .btn--green:active,
+    .btn--green:focus,
+    .btn--green:active:focus {
+    background-color: #3c8444;
+    border-color: #3c8444;
+    color: white;
+    }
     </style>
 </head>
 <body class="d-flex flex-column min-vh-100"><div class="background-container">
@@ -120,7 +139,7 @@
         <div class="row">
             <div class="col-md-4">
                 <h3 class="text-white">Friends</h3>
-                <ul class="list-group text-white">
+                <ul class="list-group">
                     {% for friend in friends %}
                         <li class="list-group-item">
                             <a href="{% url 'messages' %}?username={{ friend.username }}">{{ friend.username }}</a>
@@ -147,7 +166,7 @@
                             <label class="text-white" for="content">Message:</label>
                             <textarea class="form-control" id="content" name="content" rows="2"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send</button>
+                        <button type="submit" class="btn btn--green">Send</button>
                     </form>
                 {% else %}
                     <h5 class="text-white">Select a friend to chat</h5>

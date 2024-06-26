@@ -84,6 +84,7 @@
 <body class="d-flex flex-column min-vh-100 bg-dark text-white">
 <div class="background-container">
     <header>
+        <!--Nav-->
         <div class="container-fluid">
             <nav class="navbar navbar-light navbar-expand-sm navbar-transparent">
                 <a href="{% url 'dashboard' %}" class="navbar-brand text-white">Fit Friends</a>
@@ -91,17 +92,13 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="active nav-item mr-2"><a class="nav-link" href="{% url 'register' %}">Home</a></li>
-                        <li class="active nav-item mr-2"><a class="nav-link" href="{% url 'login' %}">Log In</a></li>
-                    </ul>
-                </div>
-                <div class="d-none d-md-block">
-                    <p class="navbar-text text-dark my-auto mr-2"><i>Try out your free profile today!</i></p>
-                    <a class="btn btn--green btn-sm" href="#" role="button" data-toggle="modal" data-target="#signupModal">Sign Up</a>
-                </div>
-            </nav>
-        </div>
+                    <ul class="navbar-nav ml-auto">
+            <li class="active nav-item mr-2"><a class="nav-link" href="{% url 'register' %}">Home</a></li>
+            <li class=" active nav-item mr-2"><a class="nav-link btn--green" href="{% url 'login' %}">Login</a></li>
+        </ul>
+    </div>
+    </nav>
+</div>
     </header>
     <div class="container mt-5 text-dark">
         <section class="description">

@@ -38,30 +38,33 @@
     max-width: 800px;
     width: 100%;
 }
+.navbar-collapse {
+            background: rgba(242, 255, 232, 0.5);
+            border-radius: 9px;
+
+        }
+        .navbar-toggler-icon {
+          color: #b7ff6a;
+        }
     </style>
 </head>
 <body class="d-flex flex-column min-vh-100"><div class="background-container">
 <header>
-    <!--Nav-->
-    <div class="container-fluid nav-box">
-    <nav class="navbar navbar-dark navbar-expand-sm">
-    <a href="/" class="navbar-brand">
-                Fit Friends</a>
+     <!--Nav-->
+        <div class="container-fluid">
+            <nav class="navbar navbar-light navbar-expand-sm navbar-transparent">
+                <a href="{% url 'dashboard' %}" class="navbar-brand text-white">Fit Friends</a>
                 <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span></button>
-            
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-
-    <ul class="navbar-nav mr-auto">
-        <li class=" active nav-item mr-2"><a class="nav-link" href="{% url 'register' %}">Home</a></li>
-        <li class="active nav-item mr-2"><a class="nav-link" href="{% url 'about' %}">About</a></li>
-    </ul>
-</div>
-    <div class="d-none d-md-block">
-        <p class="navbar-text-dark my-auto mr-2"><i>Try out your free profile today!</i></p>
-        <a class="btn btn--green btn-sm" href="#" role="button" data-toggle="modal" data-target="#signupModal">Sign Up</a>
-    </div>
-</nav>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="{% url 'profile' user.username %}">My Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'messages' %}">Messages</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">LogOut</a></li>
+                    </ul>
+                </div>
+            </nav>
 </div>
 </header>
 <div class="container mt-5 pt-3">

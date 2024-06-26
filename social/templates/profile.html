@@ -104,7 +104,7 @@
     <main>
         <div class="container mt-5 pt-3">
             <h2 class="text-white">{{ user.username }}</h2>
-            <img src="{{ user.profile.image.url }}" alt="Profile Image" class="profile-img"> <!-- Profile Image -->
+            <img src="{{ user.profile.image.url }}" alt="Profile Image" class="profile-img">
             
             {% if user == request.user %}
             <form method="post" enctype="multipart/form-data">

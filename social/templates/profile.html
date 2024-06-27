@@ -126,22 +126,26 @@
             
             {% if user == request.user %}
             <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label class="text-white" for="profileImage">Update Profile Image:</label>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="profileImage" name="image">
-                            <label class="custom-file-label" for="profileImage">Choose file</label>
-                        </div>
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="text-white" for="profileImage">Update Profile Image:</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="profileImage" name="image">
+                        <label class="custom-file-label" for="profileImage">Choose file</label>
                     </div>
-                    <button type="submit" class="btn btn--green">Save Profile Picture</button>
-                </form><br>
+                </div>
+                <button type="submit" class="btn btn--green">Save Profile Picture</button>
+            </form><br>
+            
+            <form method="post">
+                {% csrf_token %}
                 <div class="form-group text-white">
                     <label for="bio">Bio:</label>
                     <textarea class="form-control custom-textarea" id="bio" name="bio" rows="3">{{ user.profile.bio }}</textarea>
                 </div>
                 <button type="submit" class="btn btn--green">Save Bio</button>
             </form>
+            
             {% else %}
             <div class="container">
                 <h4>Bio:</h4>

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, ProfileForm
 from .models import Post, Profile, Message, Comment
 from django.http import JsonResponse
 from django.db.models import Q
@@ -44,7 +44,7 @@ def profile(request, username):
     is_friend = profile.friends.filter(id=request.user.id).exists()
 
     if request.method == 'POST':
-        bio = request.POST.get('bio')
+        bio = request.POST.get('bio', '')
         profile.bio = bio
         if 'image' in request.FILES:
             profile.image = request.FILES['image']

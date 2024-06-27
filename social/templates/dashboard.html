@@ -87,6 +87,20 @@
             border-radius: 9px;
 
     }}
+    .btn--green {
+    background-color: #b7ff6a;
+    border-radius: 23px;
+    border: 1px solid #b7ff6a;
+    max-width: fit-content;
+    }
+    .btn--green:hover,
+    .btn--green:active,
+    .btn--green:focus,
+    .btn--green:active:focus {
+    background-color: #3c8444;
+    border-color: #3c8444;
+    color: white;
+    }
     </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -117,7 +131,7 @@
             <div class="form-group">
                 <textarea class="form-control custom-textarea" name="content" placeholder="Share your thoughts with your FitFriends"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" name="post_status">Post Status</button>
+            <button type="submit" class="btn btn--green" name="post_status">Post Status</button>
         </form>
         <br><br>
         <ul class="list-group">

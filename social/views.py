@@ -2,11 +2,30 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .forms import UserRegisterForm, ProfileForm
-from .models import Post, Profile, Message, Comment
-from django.http import JsonResponse
-from django.db.models import Q
+from django.http import JsonResponse, HttpResponseRedirect
+from django.urls import reverse
 from django.views.decorators.http import require_POST
+from django.views.generic import DetailView
+from django.db.models import Q
+
+from .forms import UserRegisterForm, ProfileForm
+from .models import Post, Profile, Message
+from .models import Like
+
+def like_view(request):
+    if request.method == 'POST' and request.user.is_authenticated:
+        # Assuming your like button sends a POST request
+        liked_post_id = request.POST.get('post_id')  # Adjust based on your HTML structure
+        liked_post = get_object_or_404(Post, id=liked_post_id)  # Adjust based on your model
+        like, created = Like.objects.get_or_create(user=request.user, liked_post=liked_post)
+        if not created:
+            # User has already liked the post, so unlike it
+            like.delete()
+            return JsonResponse({'liked': False, 'like_count': liked_post.like_set.count()})
+        else:
+            return JsonResponse({'liked': True, 'like_count': liked_post.like_set.count()})
+    return JsonResponse({}, status=400)
+
 
 def register(request):
     if request.method == 'POST':
@@ -102,39 +121,12 @@ def dashboard(request):
             else:
                 pass
 
-        elif 'post_comment' in request.POST:
-            post_id = request.POST.get('post_id')
-            content = request.POST.get('content', '').strip()
-            if content:
-                post = Post.objects.get(id=post_id)
-                Comment.objects.create(post=post, content=content, author=request.user)
-            else:
-                pass
-
         return redirect('dashboard')
         
     posts = Post.objects.order_by('-created_at')
     return render(request, 'dashboard.html', {'posts': posts})
 
-@require_POST
-def like_post(request):
-    post_id = request.POST.get('post_id')
-    if post_id:
-        post = Post.objects.get(id=post_id)
-        post.like_count += 1
-        post.save()
-        return JsonResponse({'status': 'ok', 'like_count': post.like_count})
-    return JsonResponse({'status': 'error'})
 
-@require_POST
-def dislike_post(request):
-    post_id = request.POST.get('post_id')
-    if post_id:
-        post = Post.objects.get(id=post_id)
-        post.dislike_count += 1
-        post.save()
-        return JsonResponse({'status': 'ok', 'dislike_count': post.dislike_count})
-    return JsonResponse({'status': 'error'})
 
 def delete_post(request, post_id):
     post = get_object_or_404(Post, id=post_id)
@@ -142,7 +134,9 @@ def delete_post(request, post_id):
     if request.user == post.author:
         post.delete()
     
-    return redirect('profile', username=request.user.username)
+    return redirect('dashboard', username=request.user.username)
+
+
 
 @login_required
 def view_messages(request):

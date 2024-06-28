@@ -110,6 +110,13 @@ def unfollow(request, username):
     user_to_unfollow_profile.friends.remove(request.user)
     return redirect('profile', username=username)
 
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    if request.user == post.author:
+        post.delete()
+    
+    return redirect('profile', username=request.user.username)
 
 @login_required
 def dashboard(request):
@@ -125,17 +132,6 @@ def dashboard(request):
         
     posts = Post.objects.order_by('-created_at')
     return render(request, 'dashboard.html', {'posts': posts})
-
-
-
-def delete_post(request, post_id):
-    post = get_object_or_404(Post, id=post_id)
-
-    if request.user == post.author:
-        post.delete()
-    
-    return redirect('dashboard', username=request.user.username)
-
 
 
 @login_required

@@ -146,15 +146,14 @@
                         {{ post.content }}
                     </div>
                     <div class="col-md-2">
-                        <button type="button" class="btn btn-outline-primary btn-sm btn-custom">
-                            Comments
-                        </button>
                         <button type="button" class="btn btn-outline-primary btn-sm btn-custom likeButton" data-post-id="{{ post.id }}">
                             <i class="far fa-thumbs-up"></i> 
                             <span id="likeText">Like</span>
                             <span id="likeCount">{{ post.like_set.count }}</span>
                         </button>
-                        
+                        <button type="button" class="btn btn-outline-primary btn-sm btn-custom">
+                            Comments
+                        </button>
                     </div>
                 </div>
             </li>
@@ -203,5 +202,6 @@
         });
     });
     </script>
+
     </body>
 </html>

@@ -6,20 +6,19 @@ from django.http import JsonResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.views.decorators.http import require_POST
 from django.views.generic import DetailView
+from django.views import View
 from django.db.models import Q
 
 from .forms import UserRegisterForm, ProfileForm
-from .models import Post, Profile, Message
-from .models import Like
+from .models import Post, Profile, Message, Like
+
 
 def like_view(request):
     if request.method == 'POST' and request.user.is_authenticated:
-        # Assuming your like button sends a POST request
-        liked_post_id = request.POST.get('post_id')  # Adjust based on your HTML structure
-        liked_post = get_object_or_404(Post, id=liked_post_id)  # Adjust based on your model
+        liked_post_id = request.POST.get('post_id')
+        liked_post = get_object_or_404(Post, id=liked_post_id)
         like, created = Like.objects.get_or_create(user=request.user, liked_post=liked_post)
         if not created:
-            # User has already liked the post, so unlike it
             like.delete()
             return JsonResponse({'liked': False, 'like_count': liked_post.like_set.count()})
         else:

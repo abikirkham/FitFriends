@@ -37,7 +37,7 @@
     </div>
     {% endif %}
     <hr>
-    <h3 class="mt-4 text-white">Posts</h3>
+    <h3 class="mt-4 text-dark">Posts</h3>
     <ul class="list-group">
         {% for post in user_posts %}
             <li class="list-group-item">
@@ -52,7 +52,7 @@
             </li>
         {% endfor %}
     </ul>
-    <h3 class="mt-4 text-white">Followers</h3>
+    <h3 class="mt-4 text-dark">Followers</h3>
     <ul class="list-group">
         {% for friend in user.profile.friends.all %}
             <li class="list-group-item"><a href="{% url 'profile' friend.username %}">{{ friend.username }}</a></li>
@@ -60,7 +60,7 @@
     </ul>
 
     {% if user != request.user %}
-        <h3 class="mt-4 text-white">Your Followers</h3>
+        <h3 class="mt-4 text-dark">Your Followers</h3>
         <ul class="list-group">
             {% for friend in logged_in_friends %}
                 <li class="list-group-item"><a href="{% url 'profile' friend.username %}">{{ friend.username }}</a></li>
@@ -70,13 +70,3 @@
 </div>
 {% endblock %}
 
-{% block extra_js %}
-<script>
-    $(document).ready(function() {
-        $('.custom-file-input').on('change', function(event) {
-            var inputFile = event.currentTarget;
-            $(inputFile).parent().find('.custom-file-label').html(inputFile.files[0].name);
-        });
-    });
-</script>
-{% endblock %}

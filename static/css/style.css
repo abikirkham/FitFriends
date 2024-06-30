@@ -1,71 +1,72 @@
+/* Base styling for body */
 body {
     font-family: 'Montserrat', sans-serif;
-
+    background-color: #101809;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-
     position: relative;
     margin: 0;
-}
-
-.background-container {
+    /* Background image */
     background: url('../images/logo.jpg') no-repeat center center fixed;
     background-size: cover;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
     min-height: 100vh;
 }
 
-/* Callout */
+/* Container styling */
 .container {
-    display: flex;
-    justify-content: center;
-    background: rgba(242, 255, 232, 0.5); 
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 100%;
-}
+    flex-direction: column;
+    background: rgba(242, 255, 232, 0.5);
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 900px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #101809;
+ }
+        
+/* Login container */
 .login-container {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 85vh;
 }
+        
+/* Callout styling */
 .callout {
-    background: rgba(242, 255, 232, 0.5);
+    background: rgba(242, 255, 232, 0.9);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     max-width: 800px;
     width: 100%;
 }
-
-/* Block dividers */
-
+        
+/* Block divider styling */
 .block-divider {
     width: 500px;
     height: 4px;
     border: 0;
 }
-
+        
 .block-divider--green {
     background-color: #b7ff6a;
-    
 }
-
-
-
-
+        
+/* Button styling */
 .btn--green {
     background-color: #b7ff6a;
     border-radius: 23px;
     border: 1px solid #b7ff6a;
+    max-width: fit-content;
+    text-decoration: none;
 }
-
+        
 .btn--green:hover,
 .btn--green:active,
 .btn--green:focus,
@@ -74,19 +75,146 @@ body {
     border-color: #3c8444;
     color: white;
 }
-
-/* Jumbotron */
-
+        
+/* Jumbotron styling */
 .jumbotron {
     background-color: transparent;
 }
-
+        
 .jumbotron h1 {
     margin-bottom: 30px;
 }
-
+        
 .jumbotron-small {
     font-style: italic;
     font-size: larger;
     margin-bottom: 30px;
 }
+        
+/* Navbar styling */
+.nav-box {
+    background-color: #343a40;
+}
+        
+.nav-box .nav-link {
+    color: #fff;
+}
+        
+.navbar-transparent {
+    background-color: transparent !important;
+}
+        
+.navbar-nav .nav-link {
+    color: #343a40;
+}
+        
+/* List group item styling */
+.list-group-item {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    margin-bottom: 0.5rem;
+}
+        
+.list-group-item a {
+    font-size: 1em;
+    color: rgb(54, 54, 54);
+    text-decoration: none;
+}
+        
+.list-group-item a:hover {
+    color: #749a4c;
+}
+        
+/* Message styling */
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+.message.sent {
+    text-align: right;
+    background-color: #a0d06d;
+    color: rgb(54, 54, 54);
+    margin-left: 80px;
+    margin-top: 10px;
+}
+.message.received {
+    text-align: left;
+    background-color: #eaffea;
+    color: rgb(54, 54, 54);
+    margin-right: 80px;
+    margin-top: 10px;
+}
+        
+/* Timestamp styling */
+.timestamp {
+    font-size: 12px;
+    color: rgba(29, 29, 29, 0.6);
+}
+        
+/* Form control styling */
+.form-control {
+    border-color: #dee2e6;
+}
+        
+/* Custom textarea */
+.custom-textarea {
+    width: 800px;
+    max-width: 1200px;
+}
+        
+@media (min-width: 300px) {
+    .custom-textarea {
+        width: 270px;
+        max-width: 270px;
+    }
+}
+        
+@media (min-width: 600px) {
+    .custom-textarea {
+        width: 470px;
+        max-width: 470px;
+    }
+}
+        
+@media (min-width: 900px) {
+    .custom-textarea {
+        width: 700px;
+        max-width: 700px;
+    }
+}
+        
+/* Profile image styling */
+.profile-img {
+    width: 170px; 
+    height: 170px;  
+    object-fit: cover; 
+    border-radius: 50%; 
+}
+.profile-img-dashboard {
+    width: 130px; 
+    height: 130px;  
+    object-fit: cover; 
+    border-radius: 50%; 
+}
+        
+/* Custom file label */
+.custom-file-label::after {
+    content: "Browse";
+}
+    
+/* Footer container */
+.footer-container {
+    bottom: 0;
+}
+        
+/* Responsive navbar collapse */
+@media (max-width: 576px) {
+    .navbar-collapse {
+        background: rgba(242, 255, 232, 0.5);
+        border-radius: 9px;
+        border: none;
+    }
+}
+        

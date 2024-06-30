@@ -1,84 +1,10 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Montserrat:wght@200;300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <title>Fit Friends</title>
-    <style>body {
-        font-family: 'Montserrat', sans-serif;
-        background-color: #101809;
-    }
-    .container {
-    display: flex;
-    justify-content: center;
-    background: rgba(242, 255, 232, 0.9); 
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    width: 100%;
-}
-.login-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 85vh;
-}
-.callout {
-    background: rgba(242, 255, 232, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    max-width: 800px;
-    width: 100%;
-}
-@media (max-width: 576px) {
-    .navbar-collapse {
-            background: rgba(242, 255, 232, 0.5);
-            border-radius: 9px;
+{% extends 'base.html' %}
 
-    }}
-    </style>
-</head>
-<body class="d-flex flex-column min-vh-100"><div class="background-container">
-<header>
-     <!--Nav-->
-        <div class="container-fluid">
-            <nav class="navbar navbar-light navbar-expand-sm navbar-transparent">
-                <a href="{% url 'dashboard' %}" class="navbar-brand text-white">Fit Friends</a>
-                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a class="nav-link" href="{% url 'profile' user.username %}">My Profile</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'messages' %}">Messages</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">LogOut</a></li>
-                    </ul>
-                </div>
-            </nav>
-</div>
-</header>
+{% block title %}Logged Out - Fit Friends{% endblock %}
+
+{% block content %}
 <div class="container mt-5 pt-3">
     <h2 class="text-white">You have been logged out</h2>
-    <a href="{% url 'login' %}">Log in again</a>
-    <footer class="text-white text-center p-3 mt-auto">
-        <div class="footer-container">
-            <span class="text-muted">@ 2024 Fit Friends | A WiP project by Abi Kirkham</span>
-        </div></div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js" integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+" crossorigin="anonymous"></script>
-</div></body>
-</html>
+    <a href="{% url 'login' %}" class="btn--green">Log in again</a>
+</div>
+{% endblock %}

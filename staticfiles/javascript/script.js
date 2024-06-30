@@ -1,4 +1,4 @@
-/* Dash board */
+/* Dashboard */
 
     $(document).ready(function() {
         $('.likeButton').click(function() {
@@ -64,15 +64,24 @@
                 data: form.serialize(),
                 success: function(response) {
                     if (response.success) {
-                        var newMessage = '<div class="message ' + (response.sender == '{{ user.username }}' ? 'sent' : 'received') + '"><strong>' + response.sender_name + ':</strong> <p>' + response.message + '</p><span>' + response.timestamp + '</span></div>';
+                        var newMessage = '<div class="message ' + (response.sender == '{{ user.username }}' ? 'sent' : 'received') + '">' +
+                                            '<strong>' + response.sender_name + ':</strong> ' +
+                                            '<p>' + response.message + '</p>' +
+                                            '<span class="timestamp">' + response.timestamp + '</span>' +
+                                        '</div>';
+                        
                         $('#conversation').append(newMessage);
+                        
+                        var conversation = $('#conversation');
+                        conversation.scrollTop(conversation[0].scrollHeight);
+                        
                         $('#content').val('');
                     }
                 }
             });
         });
     });
-
+    
 /* Profile */
 
     $(document).ready(function() {

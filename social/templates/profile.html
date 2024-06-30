@@ -5,14 +5,14 @@
 
 {% block content %}
 <div class="container mt-5 pt-3">
-    <h2 class="text-white">{{ user.username }}</h2>
+    <h2 class="text-dark">{{ user.username }}</h2>
     <img src="{{ user.profile.image.url }}" alt="Profile Image" class="profile-img">
     
     {% if user == request.user %}
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="form-group">
-            <label class="text-white" for="profileImage">Update Profile Image:</label>
+            <label class="text-dark" for="profileImage">Update Profile Image:</label>
             <div class="custom-file">
                 <input type="file" class="custom-file-input" id="profileImage" name="image">
                 <label class="custom-file-label" for="profileImage">Choose file</label>
@@ -23,7 +23,7 @@
     
     <form method="post">
         {% csrf_token %}
-        <div class="form-group text-white">
+        <div class="form-group text-dark">
             <label for="bio">Bio:</label>
             <textarea class="form-control custom-textarea" id="bio" name="bio" rows="3">{{ user.profile.bio }}</textarea>
         </div>

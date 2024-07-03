@@ -19,7 +19,14 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-md-2">
+                    {% comment %}
                     <img src="{{ post.author.profile.image.url }}" alt="{{ post.author.username }}'s profile image" class="profile-img-dashboard">
+                    {% endcomment %}
+                    {% if post.author.profile.image == 'default.jpg' %}
+                    <img src="/static/images/default.jpg" alt="Profile Image" class="profile-img-dashboard">
+                    {% else %}
+                    <img src="{{ post.author.profile.image.url}}" alt="Profile Image" class="profile-img-dashboard">
+                    {% endif %}
                 </div>
                 <div class="col-md-8 text-dark">
                     <a href="{% url 'profile' post.author.username %}">{{ post.author.username }}</a><small> on {{ post.created_at|date:"F d, Y H:i" }}</small><br>

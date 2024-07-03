@@ -9,7 +9,7 @@ from django.views.generic import DetailView
 from django.views import View
 from django.db.models import Q
 
-from .forms import UserRegisterForm, ProfileForm
+from .forms import UserRegisterForm, ProfileForm, CommentForm
 from .models import Post, Profile, Message, Like
 
 
@@ -37,6 +37,7 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request, 'register.html', {'form': form})
+    
 
 def about(request):
     return render(request, 'about.html')
@@ -124,13 +125,30 @@ def dashboard(request):
             content = request.POST.get('content', '').strip()
             if content:
                 Post.objects.create(content=content, author=request.user)
-            else:
-                pass
-
-        return redirect('dashboard')
+            return redirect('dashboard')
         
+        if 'comment_post' in request.POST:
+            post_id = request.POST.get('post_id')
+            comment_form = CommentForm(request.POST)
+            post = get_object_or_404(Post, id=post_id)
+            if comment_form.is_valid():
+                comment_form.instance.email = request.user.email
+                comment_form.instance.name = request.user.username
+                comment = comment_form.save(commit=False)
+                comment.post = post
+                comment.approved = True
+                comment.save()
+                return redirect('dashboard')
+
     posts = Post.objects.order_by('-created_at')
-    return render(request, 'dashboard.html', {'posts': posts})
+    comment_form = CommentForm()
+
+    posts_with_comments = []
+    for post in posts:
+        comments = post.comments.filter(approved=True).order_by("-created_on")
+        posts_with_comments.append((post, comments))
+
+    return render(request, 'dashboard.html', {'posts_with_comments': posts_with_comments, 'comment_form': comment_form})
 
 
 @login_required
@@ -174,3 +192,4 @@ def send_message(request):
             })
         
     return JsonResponse({'success': False})
+

@@ -2,7 +2,7 @@
 
 {% block title %}Dashboard - Fit Friends{% endblock %}
 
-{% block content %}
+{% block content %}{% load crispy_forms_tags %}
 <div class="container mt-5 text-dark">
     <h2 class="text-dark">Dashboard</h2>
     <h3 class="text-dark">Post an update to your fit friends</h3>
@@ -15,7 +15,7 @@
     </form>
     <br><br>
     <ul class="list-group">
-        {% for post in posts %}
+        {% for post, comments in posts_with_comments %}
         <li class="list-group-item">
             <div class="row">
                 <div class="col-md-2">
@@ -31,9 +31,43 @@
                         <span id="likeText">Like</span>
                         <span id="likeCount">{{ post.like_set.count }}</span>
                     </button>
-                    <button type="button" class="btn btn-outline-primary btn-sm btn-custom">
-                        Comments
-                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <hr>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 card mb-4 mt-3">
+                    <small><p>Comments:</p></small>
+                    <div class="card-body">
+                        {% for comment in comments %}
+                        <div class="comments" style="padding: 10px;">
+                            <p>
+                                {{ comment.name }}
+                                <span class=" text-muted font-weight-normal">
+                                    {{ comment.created_on }}
+                                </span><small>wrote:</small>
+                            </p>
+                            {{ comment.body | linebreaks }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-4 card mb-4 mt-3">
+                    <div class="card-body">
+                        {% if user.is_authenticated %}
+                        <h5><small>Leave a comment:</small></h5>
+                        <p><small>as: {{ user.username }}</small></p>
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="post_id" value="{{ post.id }}">
+                            {{ comment_form.as_p }}
+                            <button type="submit" class="btn--green" name="comment_post">Submit</button>
+                        </form>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </li>

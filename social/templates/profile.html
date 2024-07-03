@@ -6,7 +6,7 @@
 {% block content %}
 <div class="container mt-5 pt-3">
     <h2 class="text-dark">{{ user.username }}</h2>
-    <img src="{{ user.profile.image.url }}" alt="Profile Image" class="profile-img">
+    <img src="{% if user.profile.image.url %}{{ user.profile.image.url }}{% else %}/static/images/default.jpg{% endif %}" alt="Profile Image" class="profile-img">
     
     {% if user == request.user %}
     <form method="post" enctype="multipart/form-data">

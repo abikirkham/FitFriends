@@ -22,7 +22,7 @@
                     <img src="{{ post.author.profile.image.url }}" alt="{{ post.author.username }}'s profile image" class="profile-img-dashboard">
                 </div>
                 <div class="col-md-8 text-dark">
-                    <small><a href="{% url 'profile' post.author.username %}">{{ post.author.username }}</a> on {{ post.created_at|date:"F d, Y H:i" }}</small><br>
+                    <a href="{% url 'profile' post.author.username %}">{{ post.author.username }}</a><small> on {{ post.created_at|date:"F d, Y H:i" }}</small><br>
                     {{ post.content }}
                 </div>
                 <div class="col-md-2">
@@ -58,11 +58,10 @@
                 <div class="col-md-4 card mb-4 mt-3">
                     <div class="card-body">
                         {% if user.is_authenticated %}
-                        <h5><small>Leave a comment:</small></h5>
-                        <p><small>as: {{ user.username }}</small></p>
+                        <p><small>Leave a comment:</small></p>
                         <form method="post">
                             {% csrf_token %}
-                            <input type="hidden" name="post_id" value="{{ post.id }}">
+                            <input type="hidden" name="post_id" value="{{ post.id }}" class="test">
                             {{ comment_form.as_p }}
                             <button type="submit" class="btn--green" name="comment_post">Submit</button>
                         </form>

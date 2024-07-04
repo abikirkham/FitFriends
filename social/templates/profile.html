@@ -45,6 +45,14 @@
     </div>
     {% endif %}
     <hr>
+    {% if user != request.user %}
+        {% if is_friend %}
+            <a href="{% url 'unfollow' user.username %}" class="btn btn-danger">Unfollow</a>
+        {% else %}
+            <a href="{% url 'follow' user.username %}" class="btn btn-primary">Follow</a>
+        {% endif %}
+    {% endif %}
+    <hr>
     <h3 class="mt-4 text-dark">Posts</h3>
     <ul class="list-group">
         {% for post in user_posts %}

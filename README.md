@@ -48,17 +48,46 @@ Using: [Lucidchart Flowchart](https://lucid.app/lucidspark/9fbfecbb-4dd1-4c0a-86
 
 
 
-## Technologies used 
-- HTML
-- CSS
-- PYTHON
-- JAVASCRIPT
-- DJANGO 
-- BOOTSTRAP
-- BULMA
-- HEROKU
-- NEON
-- WHITENOISE / Clouidnary initially
+## Technologies Used
+
+This project utilises a variety of technologies to build, style, and deploy the application. Below is a brief description of each technology used to build my project.
+
+### HTML (HyperText Markup Language)
+- [HTML](https://en.wikipedia.org/wiki/HTML)
+- **Description:** HTML is the standard markup language used to create the web pages used. It provides the structure of the webpages, allowing the inclusion of text, images, links, and other multimedia.
+
+### CSS (Cascading Style Sheets)
+- [CSS](https://en.wikipedia.org/wiki/CSS)
+- **Description:** CSS is a stylesheet language used for ensuring my project had more personalised design on top of Bootstrap. It allows for the separation of content and design, enabling the styling of web pages with colors, layouts, and fonts.
+
+### JavaScript
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+- **Description:** JavaScript is a programming language commonly used to create interactive effects within web browsers. For this project and the features I desired to create, I used JQuery with AJAX, frameworks and libarys of Javascript, to ensure the best interaction for the users. 
+
+### Django
+- [Django](https://en.wikipedia.org/wiki/Django_(web_framework))
+- **Description:** As this project is soley targetted around being a Django project, this is the main framework used to ensure faster development and clean, pragmatic design. It is known for its robust feature set, including an ORM, authentication, and an admin interface, needed for this social media site.
+
+### Bootstrap
+- [Bootstrap](https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework))
+- **Description:** Bootstrap is a popular front-end framework for developing responsive and mobile-first websites. It includes pre-designed CSS and JavaScript components that make it easier to build web pages quickly and consistently. I decided to use this for the base design of my project to ensure consistancy and a clean layout.
+
+### Heroku
+- [Heroku](https://en.wikipedia.org/wiki/Heroku)
+- **Description:** Heroku is the cloud platform as a service used todeploy my project and have a platform which could support my multiple programming languages and is known for its ease of use and scalability.
+
+### Neon
+- [Neon](https://en.wikipedia.org/wiki/Neon_(software))
+- **Description:** Neon was the chosedcloud-native serverless PostgreSQL provider used, as advised from code Institute to use ElephantSQL, however these were no longer availible for me to use as they are no longer accepting users. Neon offers scalable and reliable database services and this was ideal for my project. 
+
+### WhiteNoise
+- [WhiteNoise](https://github.com/evansd/whitenoise)
+- **Description:** Initaially I used Cloudinary (below) as my service for maintaining my images on the site however, it is explain int the issues section, I had errors with this and was then advised to change to Whitenoise. WhiteNoise is a Python library used with Django to serve static files efficiently. It simplifies static file management by integrating seamlessly with Django's staticfiles app and improving performance through compression and caching.
+
+### Cloudinary
+- [Cloudinary](https://en.wikipedia.org/wiki/Cloudinary)
+- **Description:** Cloudinary is a cloud-based service that provides an end-to-end solution for managing images and videos. It offers functionalities such as upload, storage, transformation, and delivery, optimising media content for web and mobile applications. (See error which occured in the issues section).
+
 
 
 ## Setup
@@ -149,13 +178,44 @@ python manage.py runserver
 ## Features 
 
 - HOME
+
+<img src="static/images/home.png">
+
 - USER AUTH / LOGIN / SIGN UP
+
+<img src="static/images/register.png">
+
+<img src="static/images/login.png">
+
 - DASHBOARD
+
+<img src="static/images/dashboard.png">
+
 - PROFILE
+
+<img src="static/images/profile.png">
+
 - MESSAGES
+
+<img src="static/images/chat.png">
+
 - ABOUT
 
+<img src="static/images/about1.png">
+
+<img src="static/images/about2.png">
+
+
 ## Testing
+
+### HTML
+
+### CSS
+
+### JAVASCRIPT
+
+### DJANGO
+
 
 ## Issues
 

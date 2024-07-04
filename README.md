@@ -210,12 +210,72 @@ python manage.py runserver
 
 ### HTML
 
+<details>
+<summary>Click to expand.</summary>
+
+- About.html
+<img src="">
+
+- Dashboard.html
+<img src="">
+
+- Login.html
+<img src="">
+
+- Logout.html
+<img src="">
+
+- Messages.html
+<img src="">
+
+- Profile.html
+<img src="">
+
+- Register.html
+<img src="">
+</details>
+
 ### CSS
+
+<details>
+<summary>Click to expand.</summary>
+
+- About.html
+<img src="">
+
+- Dashboard.html
+<img src="">
+
+- Login.html
+<img src="">
+
+- Logout.html
+<img src="">
+
+- Messages.html
+<img src="">
+
+- Profile.html
+<img src="">
+
+- Register.html
+<img src="">
+
+</details>
 
 ### JAVASCRIPT
 
+<details>
+<summary>Click to expand.</summary>
+
+</details>
+
 ### DJANGO
 
+<details>
+<summary>Click to expand.</summary>
+
+</details>
 
 ## Issues
 

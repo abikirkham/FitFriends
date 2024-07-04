@@ -173,7 +173,30 @@ Start the Django development server:
 python manage.py runserver
 
 
+## Deployment 
 
+### Making a Local Clone to create project
+
+- Find the GitHub Repository.
+- Click the Code button
+- Copy the link shown.
+- In Gitpod, change the directory to the location you would like the cloned directory to be located.
+- Type git clone, and paste the link you copied in step 3.
+- Press Enter to have the local clone created.
+
+### Updating my changes
+
+git add <file> - This command was used to add the file(s) to the staging area before they are committed.
+
+git commit -m “commit message” - This command was used to commit changes to the local repository queue ready for the final step.
+
+git push - This command was used to update all committed code to the remote repository on github.
+
+### Heroku
+
+Deploying to Heroku steps ....
+
+include config vars....
 
 ## Features 
 
@@ -208,7 +231,7 @@ python manage.py runserver
 
 ## Testing
 
-### HTML
+#### HTML
 
 <details>
 <summary>Click to expand.</summary>
@@ -235,7 +258,7 @@ python manage.py runserver
 <img src="">
 </details>
 
-### CSS
+#### CSS
 
 <details>
 <summary>Click to expand.</summary>
@@ -263,23 +286,99 @@ python manage.py runserver
 
 </details>
 
-### JAVASCRIPT
+#### JAVASCRIPT
 
 <details>
 <summary>Click to expand.</summary>
 
 </details>
 
-### DJANGO
+#### DJANGO
 
 <details>
 <summary>Click to expand.</summary>
 
 </details>
+
+### Responsiveness 
+
+<details>
+<summary>Click to expand.</summary>
+
+- About.html
+<img src="">
+
+- Dashboard.html
+<img src="">
+
+- Login.html
+<img src="">
+
+- Logout.html
+<img src="">
+
+- Messages.html
+<img src="">
+
+- Profile.html
+<img src="">
+
+- Register.html
+<img src="">
+
+</details>
+
+### Compatibilty 
+
+The project has been tested for compatibility with the following browsers using this site. Unfortunately the trail on my account would not cover macOS which is why the images may look different:
+
+- Google Chrome (Version 122)
+- Edge (Version 122)
+- Firefox (Version 124)
+- Opera (Version 108)
+- macOS Sonoma 16.5
+
+Below are the images shown to prove these tests.
+
+<details>
+<summary>Click to expand.</summary>
+
+</details>
+
+### Accessibility
+
+By utilising the Wave Accessibility tool for ongoing development and final testing, used for the below:
+
+1. Ensure all forms have associated labels or appropriate aria-labels.
+2. Validate that color contrasts meet the minimum ratios outlined in WCAG 2.1 Contrast Guidelines.
+3. Verify correct heading levels to accurately convey content importance.
+4. Confirm content is organized within landmarks for ease of use with assistive technology.
+5. Provide alternative text or titles for non-textual content.
+6. Set the HTML page lang attribute.
+7. Implement Aria properties in adherence to best practices outlined in WCAG 2.1.
+8. Follow established coding best practices for WCAG 2.1.
+
+
+### Manual Testing 
+
+| Function | User Action | Outcome | Result |
+|----------|-------------|---------|--------|
+
+### Scenario One - Correct Inputs for Register
+
+include missed fields and incorrect inputs 
+
+### Scenario Two - Correct Inputs for Login
+
+### Scenario Three - Correct Inputs for Messages
+
+### Scenario Four - Correct Inputs for Profile Pic Upload
+
+### Scenario Five - Correct Inputs for Posting a Status
 
 ## Issues
 
-- intial issues with static files - look back on code insitute tutor chat 
+- intial issues with static files from cloudinary - look back on code insitute tutor chat 
 
 ## Credits
 - [WireFrames](https://cacoo.com/diagrams/QXSJF7qPDCKNuzVk/B4F94?reload_rt=1718100120618_1&)

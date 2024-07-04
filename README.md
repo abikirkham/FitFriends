@@ -4,7 +4,7 @@
 
 ## Purpose
 
-A social app used for gym goers who want to find friends to go to the gym with, motivate and find new fitness tips. To build thier own profile with fitness states and what they are about and how they enjoy fitness. To message new firends privately and have a more personalised conversation to share tips and experiences. 
+This is a social app designed exclusively for women who want to find gym buddies, share motivation, and discover new fitness tips. Users can create personalized profiles showcasing their fitness stats, interests, and fitness journey. The app allows for private messaging to connect with new friends, facilitating personalized conversations to share tips and experiences. This platform aims to foster a supportive community where women can freely discuss their unique fitness challenges and achievements, empowering each other in a safe and encouraging environment.
 
 ## User Stories
 

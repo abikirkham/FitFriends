@@ -194,35 +194,87 @@ git push - This command was used to update all committed code to the remote repo
 
 ### Heroku
 
-Deploying to Heroku steps ....
 
-include config vars....
+#### 1. Prepare Your Project
+
+Ensure your project has the necessary files for deployment:
+
+- **Procfile**: Specifies the commands that are executed by the app on startup.
+    ```makefile
+  python app.py 
+  ```
+- **requirements.txt**: Lists all the dependencies your app needs.
+    ```makefile
+  Flask==1.1.2
+  gunicorn==20.0.4
+  ```
+
+#### 2. Create a New Heroku App
+Open your terminal and log in to Heroku:
+
+```
+bash:
+heroku login
+Create a new app:
+
+bash:
+heroku create your-app-name
+```
+
+Alternatively, create an app directly from the Heroku dashboard by clicking "New" and then "Create new app".
+
+#### 3. Connect Heroku App to GitHub
+- Go to Heroku Dashboard: Navigate to the Heroku dashboard.
+- Select Your App: Click on the app you created.
+- Deploy Tab: Go to the "Deploy" tab.
+- Deployment Method: Under "Deployment method", select "GitHub".
+- Connect to GitHub: Authorize Heroku to access your - GitHub account if it's your first time. Search for the repository you want to connect and click "Connect".
+
+#### 4. Configure Environment Variables
+Set any necessary environment variables for your app:
+
+Go to the "Settings" tab.
+Click "Reveal Config Vars".
+Add your key-value pairs.
+
+#### 5. Manual Deployment
+In the "Deploy" tab:
+
+Go to the "Manual deploy" section.
+Select the branch you want to deploy.
+Click "Deploy Branch".
 
 ## Features 
 
-- HOME
+- HOME 
+    - The landing page for the site. Users can sign up or log in from here. If a user is already logged in, they will have access to their personal pages. This page is not accessible to users who are not logged in.
 
 <img src="static/images/home.png">
 
-- USER AUTH / LOGIN / SIGN UP
+- USER AUTH / LOGIN / SIGN UP 
+    - Utilises Django's user authentication system to allow users to create an account and log in. This provides each user with a personal account.
 
 <img src="static/images/register.png">
 
 <img src="static/images/login.png">
 
-- DASHBOARD
+- DASHBOARD 
+    - The main page for logged-in users. It displays all user comments, allowing interaction with posts, comments, and likes.
 
 <img src="static/images/dashboard.png">
 
 - PROFILE
+    - A user profile is created upon logging in using Django. It includes an automatic profile picture and displays the user's own posts. Users can delete posts and manage their friends list here.
 
 <img src="static/images/profile.png">
 
 - MESSAGES
+    - A direct messaging platform where users can message their friends. Only people on the user's friends list can be messaged.
 
 <img src="static/images/chat.png">
 
 - ABOUT
+    - This page is visible only when not logged in. It provides potential users with more information about the site and a visual representation of the user experience.
 
 <img src="static/images/about1.png">
 

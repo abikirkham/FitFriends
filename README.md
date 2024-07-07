@@ -1,6 +1,6 @@
 # FitFriends
 
-<img width="1489" alt="Screenshot 2024-06-20 at 16 51 09" src="https://github.com/abikirkham/FitFriends/assets/144112159/d3fdcc55-1988-4ad0-8b66-e484321c2e05">
+<img src="static/images/mockup.png">
 
 ## Purpose
 

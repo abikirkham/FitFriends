@@ -302,13 +302,15 @@ Click "Deploy Branch".
 <summary>Click to expand.</summary>
 
 - About.html
-<img src="">
+
+<img src="static/images/about-css-checker.png" width="250px">
 
 - Dashboard.html
 <img src="">
 
 - Login.html
-<img src="">
+
+<img src="static/images/login-css-checker.png" width="250px">
 
 - Logout.html
 <img src="">
@@ -320,7 +322,8 @@ Click "Deploy Branch".
 <img src="">
 
 - Register.html
-<img src="">
+
+<img src="static/images/home-css-checker.png" width="250px">
 
 </details>
 
@@ -328,6 +331,10 @@ Click "Deploy Branch".
 
 <details>
 <summary>Click to expand.</summary>
+
+- JShint
+
+<img src="static/images/jshint.png" width="250px">
 
 </details>
 
@@ -344,25 +351,29 @@ Click "Deploy Branch".
 <summary>Click to expand.</summary>
 
 - About.html
-<img src="">
+
+<img src="static/images/responsive-about1.png">
+<img src="static/images/responsive-about2.png">
 
 - Dashboard.html
-<img src="">
+
+<img src="static/images/responsive-dashboard.png">
 
 - Login.html
-<img src="">
 
-- Logout.html
-<img src="">
+<img src="static/images/responsive-login.png">
 
 - Messages.html
-<img src="">
+
+<img src="static/images/responsive-messages.png">
 
 - Profile.html
-<img src="">
+
+<img src="static/images/responsive-profile.png">
 
 - Register.html
-<img src="">
+
+<img src="static/images/responsive-home.png">
 
 </details>
 

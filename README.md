@@ -109,32 +109,19 @@ pip install neon
 
 
 2. **Setup Neon**:
-- Create a `neon_settings.py` file in your Django project directory.
-- Configure your settings in this file using Neon's syntax for environment-based configuration. For example:
+- Create a `settings.py` file in your Django project directory.
+- Configure your settings to connect to your env.py file which will hold Neon's syntax for environment-based configuration. For example:
+
+settings.py
   ```python
-  from neon import settings
-
-  settings.configure(
-      DEBUG=True,
-      DATABASES={
-          'default': {
-              'ENGINE': 'django.db.backends.sqlite3',
-              'NAME': 'mydatabase',
-          }
-      },
-      # Add other settings as needed
-  )
+  if os.path.isfile('env.py'):
+    import env
   ```
-
-3. **Integrate Neon with Django settings**:
-Modify your `settings.py` to load settings from `neon_settings.py`:
+env.py
 ```python
-# settings.py
-from neon.contrib.django import get_neon_settings
-
-neon_settings = get_neon_settings()
-if neon_settings:
-    locals().update(neon_settings)
+    import os
+        os.environ['DATABASE_URL'] = '<Database-URL>'
+        os.environ["SECRET_KEY"]="<create_your_secret_key>"
 ```
 
 ### Whitenoise
@@ -158,7 +145,6 @@ MIDDLEWARE = [
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ```
 
 4. **Final Steps**

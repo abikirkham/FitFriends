@@ -459,40 +459,18 @@ The form does not submit, and an error is displayed to tell the user that the fi
 
 The website behaved as expected; an error message was displayed, and the form did not submit.
 
-![field-require](docs/field-req.jpg)
+![field-require]()
 
-#### Part Three - Missing Required Field Last Name
-
-**Steps to test:**
-
-1. Navigate to FitFriends - Home Page
-2. Scroll down to the form and input the following data:
-   - First Name: Jane
-   - Last Name:
-   - Email: doe.jane@test.com
-   - Comment: This is a test.
-3. Click Submit
-
-**Expected:**
-
-The form does not submit, and an error is displayed to tell the user that the field is required.
-
-**Actual:**
-
-The website behaved as expected; an error message was displayed, and the form did not submit.
-
-![field-require](docs/field-req.jpg)
-
-#### Part Four - Missing Required Field Email
+#### Part Three - Missing Required Field Email
 
 **Steps to test:**
 
 1. Navigate to FitFriends - Home Page
 2. Scroll down to the form and input the following data:
-   - First Name: Jane
-   - Last Name: Doe
+   - User Name: Jane
    - Email:
-   - Comment: This is a test.
+   - Password: This1is2a3test
+   - Repeate password: This1is2a3test
 3. Click Submit
 
 **Expected:**
@@ -503,18 +481,18 @@ The form does not submit, and an error is displayed to tell the user that the fi
 
 The website behaved as expected; an error message was displayed, and the form did not submit.<
 
-![field-require](docs/field-req.jpg)
+![field-require]()
 
-#### Part Five - Incorrect email format
+#### Part Four - Incorrect email format
 
 **Steps to test:**
 
 1. Navigate to FitFriends - Home Page
 2. Scroll down to the form and input the following data:
-   - First Name: Jane
-   - Last Name: Doe
+   - User Name: Jane
    - Email: doe.janetest.com
-   - Comment: This is a test.
+   - Password: This1is2a3test
+   - Repeate password: This1is2a3test
 3. Click Submit
 
 **Expected:**
@@ -525,15 +503,270 @@ The form does not submit, and an error is displayed to tell the user that a vali
 
 The website behaved as expected; an error message was displayed, and the form did not submit. 
 
-![field-require](docs/field-req.jpg)
+![field-require]()
 
-### Scenario Two - Correct Inputs for Login
+## Scenario One - Correct Inputs
 
-### Scenario Three - Correct Inputs for Messages
+### Part One - Correct Inputs
 
-### Scenario Four - Correct Inputs for Profile Pic Upload
+**Steps to test:**
 
-### Scenario Five - Correct Inputs for Posting a Status
+1. Navigate to FitFriends - Home Page
+2. Select the sign-up modal form and input the following data:
+   - User Name: Jane
+   - Email: doe.jane@test.com
+   - Password: This1is2a3test
+   - Repeat password: This1is2a3test
+3. Click Submit
+4. User should be redirected to `login.html` confirmation page. This function will have created an individual profile for the user.
+
+**Expected:**
+
+Form submits with no warnings or errors, and the user is redirected to `login.html` confirmation page.
+
+**Actual:**
+
+The website behaved as expected with no errors or warnings and redirected to `login.html`.
+
+### Part Two - Missing Required Field User Name
+
+**Steps to test:**
+
+1. Navigate to FitFriends - Home Page
+2. Scroll down to the form and input the following data:
+   - User Name:
+   - Email: doe.jane@test.com
+   - Password: This1is2a3test
+   - Repeat password: This1is2a3test
+3. Click Submit
+
+**Expected:**
+
+The form does not submit, and an error is displayed to tell the user that the field is required.
+
+**Actual:**
+
+The website behaved as expected; an error message was displayed, and the form did not submit.
+
+![field-require]()
+
+### Part Three - Missing Required Field Email
+
+**Steps to test:**
+
+1. Navigate to FitFriends - Home Page
+2. Scroll down to the form and input the following data:
+   - User Name: Jane
+   - Email:
+   - Password: This1is2a3test
+   - Repeat password: This1is2a3test
+3. Click Submit
+
+**Expected:**
+
+The form does not submit, and an error is displayed to tell the user that the field is required.
+
+**Actual:**
+
+The website behaved as expected; an error message was displayed, and the form did not submit.
+
+![field-require]()
+
+### Part Four - Incorrect Email Format
+
+**Steps to test:**
+
+1. Navigate to FitFriends - Home Page
+2. Scroll down to the form and input the following data:
+   - User Name: Jane
+   - Email: doe.janetest.com
+   - Password: This1is2a3test
+   - Repeat password: This1is2a3test
+3. Click Submit
+
+**Expected:**
+
+The form does not submit, and an error is displayed to tell the user that a valid email is required and the format it should be in.
+
+**Actual:**
+
+The website behaved as expected; an error message was displayed, and the form did not submit.
+
+![field-require]()
+
+## Scenario Two - Correct Inputs for Login
+
+### Part One - Correct Inputs
+
+**Steps to test:**
+
+1. Navigate to FitFriends - Home Page
+2. Select the login modal form and input the following data:
+   - Email: doe.jane@test.com
+   - Password: This1is2a3test
+3. Click Submit
+4. User should be redirected to `dashboard.html` page. This function will log the user into their individual profile.
+
+**Expected:**
+
+Form submits with no warnings or errors, and the user is redirected to `dashboard.html` page.
+
+**Actual:**
+
+The website behaved as expected with no errors or warnings and redirected to `dashboard.html`.
+
+### Part Two - Missing Required Field Email
+
+**Steps to test:**
+
+1. Navigate to FitFriends - Home Page
+2. Select the login modal form and input the following data:
+   - Email:
+   - Password: This1is2a3test
+3. Click Submit
+
+**Expected:**
+
+The form does not submit, and an error is displayed to tell the user that the field is required.
+
+**Actual:**
+
+The website behaved as expected; an error message was displayed, and the form did not submit.
+
+![field-require]()
+
+### Part Three - Missing Required Field Password
+
+**Steps to test:**
+
+1. Navigate to FitFriends - Home Page
+2. Select the login modal form and input the following data:
+   - Email: doe.jane@test.com
+   - Password:
+3. Click Submit
+
+**Expected:**
+
+The form does not submit, and an error is displayed to tell the user that the field is required.
+
+**Actual:**
+
+The website behaved as expected; an error message was displayed, and the form did not submit.
+
+![field-require]()
+
+### Part Four - Incorrect Email Format
+
+**Steps to test:**
+
+1. Navigate to FitFriends - Home Page
+2. Select the login modal form and input the following data:
+   - Email: doe.janetest.com
+   - Password: This1is2a3test
+3. Click Submit
+
+**Expected:**
+
+The form does not submit, and an error is displayed to tell the user that a valid email is required and the format it should be in.
+
+**Actual:**
+
+The website behaved as expected; an error message was displayed, and the form did not submit.
+
+![field-require]()
+
+## Scenario Three - Correct Inputs for Messages
+
+### Part One - Correct Inputs
+
+**Steps to test:**
+
+1. Navigate to FitFriends - Home Page
+2. Log in using valid credentials:
+   - Email: doe.jane@test.com
+   - Password: This1is2a3test
+3. Navigate to the Messages section
+4. Input the following data in the message form:
+   - Recipient: john.doe@test.com
+   - Message: Hi John, this is a test message!
+5. Click Send
+
+**Expected:**
+
+Form submits with no warnings or errors, and the message is sent successfully, appearing in the user's sent messages.
+
+**Actual:**
+
+The website behaved as expected with no errors or warnings and the message was sent successfully, appearing in the user's sent messages.
+
+## Scenario Four - Correct Inputs for Profile Pic Upload
+
+### Part One - Correct Inputs
+
+**Steps to test:**
+
+1. Navigate to FitFriends - Home Page
+2. Log in using valid credentials:
+   - Email: doe.jane@test.com
+   - Password: This1is2a3test
+3. Navigate to the Profile section
+4. Click on the upload profile picture button
+5. Select a valid image file from the system
+6. Click Submit
+
+**Expected:**
+
+Form submits with no warnings or errors, and the profile picture is uploaded successfully, appearing on the user's profile.
+
+**Actual:**
+
+The website behaved as expected with no errors or warnings and the profile picture was uploaded successfully, appearing on the user's profile.
+
+### Part Two - Incorrect File Format
+
+**Steps to test:**
+
+1. Navigate to FitFriends - Home Page
+2. Log in using valid credentials:
+   - Email: doe.jane@test.com
+   - Password: This1is2a3test
+3. Navigate to the Profile section
+4. Click on the upload profile picture button
+5. Select a non-image file (e.g., a .doc file) from the system
+6. Click Submit
+
+**Expected:**
+
+The form does not submit, and an error is displayed to tell the user that only image files are allowed.
+
+**Actual:**
+
+The website behaved as expected; an error message was displayed, and the form did not submit.
+
+![field-require]()
+
+## Scenario Five - Correct Inputs for Posting a Status
+
+### Part One - Correct Inputs
+
+**Steps to test:**
+
+1. Navigate to FitFriends - Home Page
+2. Log in using valid credentials:
+   - Email: doe.jane@test.com
+   - Password: This1is2a3test
+3. Navigate to the Status section
+4. Input the following data in the status form:
+   - Status: Just completed a 5K run!
+5. Click Post
+
+**Expected:**
+
+Form submits with no warnings or errors, and the status is posted successfully, appearing on the user's timeline.
+
+**Actual:**
+
+The website behaved as expected with no errors or warnings and the status was posted successfully, appearing on the user's timeline.
 
 ## Issues
 

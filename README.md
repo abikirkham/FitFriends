@@ -413,9 +413,119 @@ By utilising the Wave Accessibility tool for ongoing development and final testi
 | Function | User Action | Outcome | Result |
 |----------|-------------|---------|--------|
 
-### Scenario One - Correct Inputs for Register
+### Form Testing
 
-include missed fields and incorrect inputs 
+The site was tested for both correct and incorrect inputs for user interactions, covering various scenarios.
+
+#### Scenario One 
+ ##### Step One - Correct Inputs
+
+**Steps to test:**
+
+1. Navigate to FitFriends - Home Page
+2. Select the sign up modal form and input the following data:
+   - User Name: Jane
+   - Email: doe.jane@test.com
+   - Password: This1is2a3test
+   - Repeate password: This1is2a3test
+3. Click Submit
+4. User should be redirected to `login.html` confirmation page. This function will have created and individual profile for the user.
+
+**Expected:**
+
+Form submits with no warnings or errors, and the user is redirected to `login.html` confirmation page.
+
+**Actual:**
+
+The website behaved as expected with no errors or warnings and redirected to `login.html`.
+
+#### Part Two - Missing Required Field User Name
+
+**Steps to test:**
+
+1. Navigate to FitFriends - Home Page
+2. Scroll down to the form and input the following data:
+   - First Name:
+   - Email: doe.jane@test.com
+   - Password: This1is2a3test
+   - Repeate password: This1is2a3test
+3. Click Submit
+
+**Expected:**
+
+The form does not submit, and an error is displayed to tell the user that the field is required.
+
+**Actual:**
+
+The website behaved as expected; an error message was displayed, and the form did not submit.
+
+![field-require](docs/field-req.jpg)
+
+#### Part Three - Missing Required Field Last Name
+
+**Steps to test:**
+
+1. Navigate to FitFriends - Home Page
+2. Scroll down to the form and input the following data:
+   - First Name: Jane
+   - Last Name:
+   - Email: doe.jane@test.com
+   - Comment: This is a test.
+3. Click Submit
+
+**Expected:**
+
+The form does not submit, and an error is displayed to tell the user that the field is required.
+
+**Actual:**
+
+The website behaved as expected; an error message was displayed, and the form did not submit.
+
+![field-require](docs/field-req.jpg)
+
+#### Part Four - Missing Required Field Email
+
+**Steps to test:**
+
+1. Navigate to FitFriends - Home Page
+2. Scroll down to the form and input the following data:
+   - First Name: Jane
+   - Last Name: Doe
+   - Email:
+   - Comment: This is a test.
+3. Click Submit
+
+**Expected:**
+
+The form does not submit, and an error is displayed to tell the user that the field is required.
+
+**Actual:**
+
+The website behaved as expected; an error message was displayed, and the form did not submit.<
+
+![field-require](docs/field-req.jpg)
+
+#### Part Five - Incorrect email format
+
+**Steps to test:**
+
+1. Navigate to FitFriends - Home Page
+2. Scroll down to the form and input the following data:
+   - First Name: Jane
+   - Last Name: Doe
+   - Email: doe.janetest.com
+   - Comment: This is a test.
+3. Click Submit
+
+**Expected:**
+
+The form does not submit, and an error is displayed to tell the user that a valid email is required and the format it should be in.
+
+**Actual:**
+
+The website behaved as expected; an error message was displayed, and the form did not submit. 
+
+![field-require](docs/field-req.jpg)
 
 ### Scenario Two - Correct Inputs for Login
 

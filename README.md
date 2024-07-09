@@ -412,6 +412,25 @@ By utilising the Wave Accessibility tool for ongoing development and final testi
 
 | Function | User Action | Outcome | Result |
 |----------|-------------|---------|--------|
+| Load page: Register | Access FitFriends link |  | Pass |
+| Load page: About | From home page, access about link in navigation or in callout container |  | Pass |
+| Load page: Login | From home page, access the login link in the navigation |  | Pass |
+| Load page: Dashboard | Once logged in with correct credentials, this should bring user to dashboard.html |  | Pass |
+| Load page: Profile | Once logged in with correct credentials opened on to your account, you can access profile from here |  | Pass |
+| Load page: Messages | Once logged in with correct credentials opened on to your account, you can access messages from here |  | Pass |
+| Load page: Logout | Once logged in with correct credentials opened on to your account, you can logout from here |  | Pass |
+| Sign up modal | Access FitFriends link, select the "Sign up now!" buttom for sign up modal to appear |  | Pass |
+| Like post | Once logged in with correct credentials, on the dashboard you can see all account holders posts where you can interact by liking posts |  | Pass |
+| Comment on post | Once logged in with correct credentials, on the dashboard you can see all account holders posts where you can interact by commenting on posts |  | Pass |
+| Post a Status | Once logged in with correct credentials, you can post your personalised status on the dashboard for everyone to see |  | Pass |
+| Another user profile | Once logged in with correct credentials, from the dashoard you will be able to see all users, if you like the posts and want to find out more about them, you can click on their name which will bring up there profile |  | Pass |
+| Upload profile picture | Once logged in with correct credentials, you can access your personal profile and upload your own picture with the upload button |  | Pass |
+| Update personal status | Once logged in with correct credentials, you can access your personal profile and add a personal statement about you/ explaining your profile |  | Pass |
+| View friends | Once logged in with correct credentials, on you profile page you will be able to see your friends you have followed |  | Pass |
+| Delete posts | Once logged in with correct credentials, on you profile page you will be able to view all posts on the dashboard and have the option to delete these |  | Pass |
+| Select friend to have conversation with | Once logged in with correct credentials, on the messages page you will see a list of all your friends to message |  | Pass |
+| Send a message | Once logged in with correct credentials, on the messages page after selecting a friend to have a conversation with you will see a text feild where you can type and send your private message |  | Pass |
+
 
 ### Form Testing
 
@@ -755,3 +774,10 @@ The website behaved as expected with no errors or warnings and the status was po
 ## Credits
 - [WireFrames](https://cacoo.com/diagrams/QXSJF7qPDCKNuzVk/B4F94?reload_rt=1718100120618_1&)
 - [Base project for a social network site](https://realpython.com/django-social-network-1/)
+- [Another tutorial for a Django social site](https://www.youtube.com/watch?v=0sMtoedWaf0)
+- Text over image https://www.w3schools.com/howto/howto_css_image_text.asp
+- https://fonts.google.com/selection/embed - google font 
+- https://medium.com/jungletronics/a-django-blog-in-vs-code-6dee94cec9c0 - for how to add profile image
+- https://favicon.io/favicon-generator/ - 
+- https://stackoverflow.com/questions/38826127/how-to-send-form-data-and-display-them-dynamically-with-ajax-in-the-same-page
+- https://dev.to/radualexandrub/how-to-add-like-unlike-button-to-your-django-blog-5gkg - like count link

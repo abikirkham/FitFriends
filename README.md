@@ -602,7 +602,7 @@ The website behaved as expected; an error message was displayed, and the form di
 
 1. Navigate to FitFriends - Home Page
 2. Select the login modal form and input the following data:
-   - Email: doe.jane@test.com
+   - User Name: Jane
    - Password: This1is2a3test
 3. Click Submit
 4. User should be redirected to `dashboard.html` page. This function will log the user into their individual profile.
@@ -615,13 +615,13 @@ Form submits with no warnings or errors, and the user is redirected to `dashboar
 
 The website behaved as expected with no errors or warnings and redirected to `dashboard.html`.
 
-### Part Two - Missing Required Field Email
+### Part Two - Missing Required Field User Name
 
 **Steps to test:**
 
 1. Navigate to FitFriends - Home Page
 2. Select the login modal form and input the following data:
-   - Email:
+   - User Name:
    - Password: This1is2a3test
 3. Click Submit
 
@@ -641,7 +641,7 @@ The website behaved as expected; an error message was displayed, and the form di
 
 1. Navigate to FitFriends - Home Page
 2. Select the login modal form and input the following data:
-   - Email: doe.jane@test.com
+   - User Name: Jane
    - Password:
 3. Click Submit
 
@@ -655,25 +655,6 @@ The website behaved as expected; an error message was displayed, and the form di
 
 ![field-require]()
 
-### Part Four - Incorrect Email Format
-
-**Steps to test:**
-
-1. Navigate to FitFriends - Home Page
-2. Select the login modal form and input the following data:
-   - Email: doe.janetest.com
-   - Password: This1is2a3test
-3. Click Submit
-
-**Expected:**
-
-The form does not submit, and an error is displayed to tell the user that a valid email is required and the format it should be in.
-
-**Actual:**
-
-The website behaved as expected; an error message was displayed, and the form did not submit.
-
-![field-require]()
 
 ## Scenario Three - Correct Inputs for Messages
 
@@ -683,11 +664,10 @@ The website behaved as expected; an error message was displayed, and the form di
 
 1. Navigate to FitFriends - Home Page
 2. Log in using valid credentials:
-   - Email: doe.jane@test.com
+   - User Name: Jane
    - Password: This1is2a3test
 3. Navigate to the Messages section
-4. Input the following data in the message form:
-   - Recipient: john.doe@test.com
+4. Select the friend you want to message:
    - Message: Hi John, this is a test message!
 5. Click Send
 
@@ -707,7 +687,7 @@ The website behaved as expected with no errors or warnings and the message was s
 
 1. Navigate to FitFriends - Home Page
 2. Log in using valid credentials:
-   - Email: doe.jane@test.com
+   - User Name: Jane
    - Password: This1is2a3test
 3. Navigate to the Profile section
 4. Click on the upload profile picture button
@@ -728,7 +708,7 @@ The website behaved as expected with no errors or warnings and the profile pictu
 
 1. Navigate to FitFriends - Home Page
 2. Log in using valid credentials:
-   - Email: doe.jane@test.com
+   - User Name: Jane
    - Password: This1is2a3test
 3. Navigate to the Profile section
 4. Click on the upload profile picture button
@@ -753,7 +733,7 @@ The website behaved as expected; an error message was displayed, and the form di
 
 1. Navigate to FitFriends - Home Page
 2. Log in using valid credentials:
-   - Email: doe.jane@test.com
+   - User Name: Jane
    - Password: This1is2a3test
 3. Navigate to the Status section
 4. Input the following data in the status form:

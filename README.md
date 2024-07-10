@@ -428,8 +428,11 @@ By utilising the Wave Accessibility tool for ongoing development and final testi
 The site was tested for both correct and incorrect inputs for user interactions, covering various scenarios.
 
 #### Scenario One 
- ##### Step One - Correct Inputs
 
+<details>
+<summary>Click to expand.</summary>
+
+ ##### Step One - Correct Inputs
 **Steps to test:**
 
 1. Navigate to FitFriends - Home Page
@@ -449,7 +452,7 @@ Form submits with no warnings or errors, and the user is redirected to `login.ht
 
 The website behaved as expected with no errors or warnings and redirected to `login.html`.
 
-#### Part Two - Missing Required Field User Name
+##### Part Two - Missing Required Field User Name
 
 **Steps to test:**
 
@@ -471,7 +474,7 @@ The website behaved as expected; an error message was displayed, and the form di
 
 ![field-require](static/images/missing-username-signup.png)
 
-#### Part Three - Missing Required Field Email
+##### Part Three - Missing Required Field Email
 
 **Steps to test:**
 
@@ -493,7 +496,7 @@ The website behaved as expected; an error message was displayed, and the form di
 
 ![field-require](static/images/missing-email-signup.png)
 
-#### Part Four - Incorrect email format
+##### Part Four - Incorrect email format
 
 **Steps to test:**
 
@@ -514,11 +517,13 @@ The form does not submit, and an error is displayed to tell the user that a vali
 The website behaved as expected; an error message was displayed, and the form did not submit. 
 
 ![field-require](static/images/missing-r-password-signup.png)
+</details>
 
+#### Scenario Two - Correct Inputs for Login
+<details>
+<summary>Click to expand.</summary>
 
-## Scenario Two - Correct Inputs for Login
-
-### Part One - Correct Inputs
+##### Part One - Correct Inputs
 
 **Steps to test:**
 
@@ -537,7 +542,7 @@ Form submits with no warnings or errors, and the user is redirected to `dashboar
 
 The website behaved as expected with no errors or warnings and redirected to `dashboard.html`.
 
-### Part Two - Missing Required Field User Name
+##### Part Two - Missing Required Field User Name
 
 **Steps to test:**
 
@@ -557,7 +562,7 @@ The website behaved as expected; an error message was displayed, and the form di
 
 ![field-require](static/images/missing-username-login.png)
 
-### Part Three - Missing Required Field Password
+#### Part Three - Missing Required Field Password
 
 **Steps to test:**
 
@@ -577,10 +582,13 @@ The website behaved as expected; an error message was displayed, and the form di
 
 ![field-require](static/images/missing-password-login.png)
 
+</details>
 
-## Scenario Three - Correct Inputs for Messages
+#### Scenario Three - Correct Inputs for Messages
+<details>
+<summary>Click to expand.</summary>
 
-### Part One - Correct Inputs
+##### Part One - Correct Inputs
 
 **Steps to test:**
 
@@ -600,10 +608,13 @@ Form submits with no warnings or errors, and the message is sent successfully, a
 **Actual:**
 
 The website behaved as expected with no errors or warnings and the message was sent successfully, appearing in the user's sent messages.
+</details>
 
-## Scenario Four - Correct Inputs for Profile Pic Upload
+#### Scenario Four - Correct Inputs for Profile Pic Upload
+<details>
+<summary>Click to expand.</summary>
 
-### Part One - Correct Inputs
+##### Part One - Correct Inputs
 
 **Steps to test:**
 
@@ -624,7 +635,7 @@ Form submits with no warnings or errors, and the profile picture is uploaded suc
 
 The website behaved as expected with no errors or warnings and the profile picture was uploaded successfully, appearing on the user's profile.
 
-### Part Two - Incorrect File Format
+##### Part Two - Incorrect File Format
 
 **Steps to test:**
 
@@ -647,10 +658,13 @@ The website behaved as expected; an error message was displayed, and the form di
 
 ![field-require](static/images/pre-image-upload.png)
 ![field-require](static/images/post-image-upload.png)
+</details>
 
-## Scenario Five - Correct Inputs for Posting a Status
+#### Scenario Five - Correct Inputs for Posting a Status
+<details>
+<summary>Click to expand.</summary>
 
-### Part One - Correct Inputs
+##### Part One - Correct Inputs
 
 **Steps to test:**
 
@@ -670,6 +684,7 @@ Form submits with no warnings or errors, and the status is posted successfully, 
 **Actual:**
 
 The website behaved as expected with no errors or warnings and the status was posted successfully, appearing on the user's timeline.
+</details>
 
 ## Issues
 

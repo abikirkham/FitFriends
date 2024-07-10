@@ -381,18 +381,15 @@ Click "Deploy Branch".
 
 The project has been tested for compatibility with the following browsers using this site. Unfortunately the trail on my account would not cover macOS which is why the images may look different:
 
-- Google Chrome (Version 122)
-- Edge (Version 122)
+- Google Chrome (Version 124)
+- Edge (Version 124)
 - Firefox (Version 124)
-- Opera (Version 108)
-- macOS Sonoma 16.5
+- Opera (Version 109)
+- macOS Sonoma (17)
+- Chrome (124)
+- iOS (<= 16 17)
 
-Below are the images shown to prove these tests.
-
-<details>
-<summary>Click to expand.</summary>
-
-</details>
+<img src="static/images/compatability.png">
 
 ### Accessibility
 
@@ -781,3 +778,4 @@ The website behaved as expected with no errors or warnings and the status was po
 - https://favicon.io/favicon-generator/ - 
 - https://stackoverflow.com/questions/38826127/how-to-send-form-data-and-display-them-dynamically-with-ajax-in-the-same-page
 - https://dev.to/radualexandrub/how-to-add-like-unlike-button-to-your-django-blog-5gkg - like count link
+https://try.powermapper.com/Demo/Report/30dfd899-ef20-4c6a-b6d9-d4836618690e

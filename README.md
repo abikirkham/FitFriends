@@ -338,12 +338,6 @@ Click "Deploy Branch".
 
 </details>
 
-#### DJANGO
-
-<details>
-<summary>Click to expand.</summary>
-
-</details>
 
 ### Responsiveness 
 
@@ -379,7 +373,7 @@ Click "Deploy Branch".
 
 ### Compatibilty 
 
-The project has been tested for compatibility with the following browsers using this site. Unfortunately the trail on my account would not cover macOS which is why the images may look different:
+The project has been tested for compatibility with the following browsers using this site. You will be able to see there are no issues with the compatability across these browsers:
 
 - Google Chrome (Version 124)
 - Edge (Version 124)
@@ -409,13 +403,13 @@ By utilising the Wave Accessibility tool for ongoing development and final testi
 
 | Function | User Action | Outcome | Result |
 |----------|-------------|---------|--------|
-| Load page: Register | Access FitFriends link |  | Pass |
-| Load page: About | From home page, access about link in navigation or in callout container |  | Pass |
-| Load page: Login | From home page, access the login link in the navigation |  | Pass |
-| Load page: Dashboard | Once logged in with correct credentials, this should bring user to dashboard.html |  | Pass |
-| Load page: Profile | Once logged in with correct credentials opened on to your account, you can access profile from here |  | Pass |
-| Load page: Messages | Once logged in with correct credentials opened on to your account, you can access messages from here |  | Pass |
-| Load page: Logout | Once logged in with correct credentials opened on to your account, you can logout from here |  | Pass |
+| Load page: Register | Access FitFriends link | The landing page will open, showing an active navigation system, signup modal and css/bootstrap styles. The background image will display. | Pass |
+| Load page: About | From home page, access about link in navigation or in callout container | The about page will display 3 containers with content about the site, features held and a image carosel to show use of django use. All images and css styles loading as should with active navigation sytem. | Pass |
+| Load page: Login | From home page, access the login link in the navigation | The login page simply has a active username and password text feild which working with this django project stores the users authetication details. | Pass |
+| Load page: Dashboard | Once logged in with correct credentials, this should bring user to dashboard.html | The dashboard will present every users posts on the site. For each post will persent the users name and profile image, their post content and the ability to interact by liking or commenting on the post. | Pass |
+| Load page: Profile | Once logged in with correct credentials opened on to your account, you can access profile from here | This profile is created when the user signs up, it will load their default profile image or already uploaded image, their bio short desription, the posts they have made posting on the dashboard and the other users they have followed. | Pass |
+| Load page: Messages | Once logged in with correct credentials opened on to your account, you can access messages from here | Initailly when opening this page, this willl show the logged in users friend list (as you can only start a chat with friends). When a friend is selected, their conversation with any previous messages shown. Also the ability to send live messages. | Pass |
+| Load page: Logout | Once logged in with correct credentials opened on to your account, you can logout from here | When the logout button in the navigation is pressed, this will log the user out and redirect them to the login page, with the navigation when user not logged in. | Pass |
 | Sign up modal | Access FitFriends link, select the "Sign up now!" buttom for sign up modal to appear |  | Pass |
 | Like post | Once logged in with correct credentials, on the dashboard you can see all account holders posts where you can interact by liking posts |  | Pass |
 | Comment on post | Once logged in with correct credentials, on the dashboard you can see all account holders posts where you can interact by commenting on posts |  | Pass |

@@ -455,7 +455,7 @@ The website behaved as expected with no errors or warnings and redirected to `lo
 
 1. Navigate to FitFriends - Home Page
 2. Scroll down to the form and input the following data:
-   - First Name:
+   - User Name:
    - Email: doe.jane@test.com
    - Password: This1is2a3test
    - Repeate password: This1is2a3test
@@ -469,7 +469,7 @@ The form does not submit, and an error is displayed to tell the user that the fi
 
 The website behaved as expected; an error message was displayed, and the form did not submit.
 
-![field-require]()
+![field-require](static/images/missing-username-signup.png)
 
 #### Part Three - Missing Required Field Email
 
@@ -491,7 +491,7 @@ The form does not submit, and an error is displayed to tell the user that the fi
 
 The website behaved as expected; an error message was displayed, and the form did not submit.<
 
-![field-require]()
+![field-require](static/images/missing-email-signup.png)
 
 #### Part Four - Incorrect email format
 
@@ -500,109 +500,21 @@ The website behaved as expected; an error message was displayed, and the form di
 1. Navigate to FitFriends - Home Page
 2. Scroll down to the form and input the following data:
    - User Name: Jane
-   - Email: doe.janetest.com
+   - Email: doe.jane@test.com
    - Password: This1is2a3test
-   - Repeate password: This1is2a3test
+   - Repeate password: 
 3. Click Submit
 
 **Expected:**
 
-The form does not submit, and an error is displayed to tell the user that a valid email is required and the format it should be in.
+The form does not submit, and an error is displayed to tell the user that a valid repeat password is required and the format it should be in.
 
 **Actual:**
 
 The website behaved as expected; an error message was displayed, and the form did not submit. 
 
-![field-require]()
+![field-require](static/images/missing-r-password-signup.png)
 
-## Scenario One - Correct Inputs
-
-### Part One - Correct Inputs
-
-**Steps to test:**
-
-1. Navigate to FitFriends - Home Page
-2. Select the sign-up modal form and input the following data:
-   - User Name: Jane
-   - Email: doe.jane@test.com
-   - Password: This1is2a3test
-   - Repeat password: This1is2a3test
-3. Click Submit
-4. User should be redirected to `login.html` confirmation page. This function will have created an individual profile for the user.
-
-**Expected:**
-
-Form submits with no warnings or errors, and the user is redirected to `login.html` confirmation page.
-
-**Actual:**
-
-The website behaved as expected with no errors or warnings and redirected to `login.html`.
-
-### Part Two - Missing Required Field User Name
-
-**Steps to test:**
-
-1. Navigate to FitFriends - Home Page
-2. Scroll down to the form and input the following data:
-   - User Name:
-   - Email: doe.jane@test.com
-   - Password: This1is2a3test
-   - Repeat password: This1is2a3test
-3. Click Submit
-
-**Expected:**
-
-The form does not submit, and an error is displayed to tell the user that the field is required.
-
-**Actual:**
-
-The website behaved as expected; an error message was displayed, and the form did not submit.
-
-![field-require]()
-
-### Part Three - Missing Required Field Email
-
-**Steps to test:**
-
-1. Navigate to FitFriends - Home Page
-2. Scroll down to the form and input the following data:
-   - User Name: Jane
-   - Email:
-   - Password: This1is2a3test
-   - Repeat password: This1is2a3test
-3. Click Submit
-
-**Expected:**
-
-The form does not submit, and an error is displayed to tell the user that the field is required.
-
-**Actual:**
-
-The website behaved as expected; an error message was displayed, and the form did not submit.
-
-![field-require]()
-
-### Part Four - Incorrect Email Format
-
-**Steps to test:**
-
-1. Navigate to FitFriends - Home Page
-2. Scroll down to the form and input the following data:
-   - User Name: Jane
-   - Email: doe.janetest.com
-   - Password: This1is2a3test
-   - Repeat password: This1is2a3test
-3. Click Submit
-
-**Expected:**
-
-The form does not submit, and an error is displayed to tell the user that a valid email is required and the format it should be in.
-
-**Actual:**
-
-The website behaved as expected; an error message was displayed, and the form did not submit.
-
-![field-require]()
 
 ## Scenario Two - Correct Inputs for Login
 
@@ -643,7 +555,7 @@ The form does not submit, and an error is displayed to tell the user that the fi
 
 The website behaved as expected; an error message was displayed, and the form did not submit.
 
-![field-require]()
+![field-require](static/images/missing-username-login.png)
 
 ### Part Three - Missing Required Field Password
 
@@ -663,7 +575,7 @@ The form does not submit, and an error is displayed to tell the user that the fi
 
 The website behaved as expected; an error message was displayed, and the form did not submit.
 
-![field-require]()
+![field-require](static/images/missing-password-login.png)
 
 
 ## Scenario Three - Correct Inputs for Messages
@@ -727,13 +639,14 @@ The website behaved as expected with no errors or warnings and the profile pictu
 
 **Expected:**
 
-The form does not submit, and an error is displayed to tell the user that only image files are allowed.
+The form does not submit, and an error in the profile image is displayed to tell the user that only image files are allowed.
 
 **Actual:**
 
 The website behaved as expected; an error message was displayed, and the form did not submit.
 
-![field-require]()
+![field-require](static/images/pre-image-upload.png)
+![field-require](static/images/post-image-upload.png)
 
 ## Scenario Five - Correct Inputs for Posting a Status
 

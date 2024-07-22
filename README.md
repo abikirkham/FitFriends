@@ -686,13 +686,37 @@ To resolve these problems, I sought help from Code Institute teachers. I was adv
 - If I had more time with this project I would make lots of changes, this would require a lot more research and possible collaboration. 
 
 ## Credits
-- [WireFrames](https://cacoo.com/diagrams/QXSJF7qPDCKNuzVk/B4F94?reload_rt=1718100120618_1&)
-- [Base project for a social network site](https://realpython.com/django-social-network-1/)
-- [Another tutorial for a Django social site](https://www.youtube.com/watch?v=0sMtoedWaf0)
-- Text over image https://www.w3schools.com/howto/howto_css_image_text.asp
-- https://fonts.google.com/selection/embed - google font 
-- https://medium.com/jungletronics/a-django-blog-in-vs-code-6dee94cec9c0 - for how to add profile image
-- https://favicon.io/favicon-generator/ - 
-- https://stackoverflow.com/questions/38826127/how-to-send-form-data-and-display-them-dynamically-with-ajax-in-the-same-page
-- https://dev.to/radualexandrub/how-to-add-like-unlike-button-to-your-django-blog-5gkg - like count link
-https://try.powermapper.com/Demo/Report/30dfd899-ef20-4c6a-b6d9-d4836618690e
+
+### Project Inspiration and Tutorials
+- [WireFrames](https://cacoo.com/diagrams/QXSJF7qPDCKNuzVk/B4F94?reload_rt=1718100120618_1&): Provided the initial design inspiration for our application's user interface, ensuring an intuitive and user-friendly layout.
+- [Base project for a social network site](https://realpython.com/django-social-network-1/): This tutorial served as a foundational guide, helping to structure the overall architecture of our Django-based social media application.
+- [Another tutorial for a Django social site](https://www.youtube.com/watch?v=0sMtoedWaf0): Complemented the base project by offering additional insights and techniques for implementing social networking features.
+
+### Frontend Design and Styling
+- [Text over image](https://www.w3schools.com/howto/howto_css_image_text.asp): Utilised this guide to effectively overlay text on images, enhancing visual appeal and usability.
+- [Google Fonts](https://fonts.google.com/selection/embed): Selected and embedded fonts to ensure the app has a cohesive and attractive typography.
+
+### User Profile and Images
+- [Adding a profile image](https://medium.com/jungletronics/a-django-blog-in-vs-code-6dee94cec9c0): Implemented user profile images following this tutorial, allowing users to personalise their profiles.
+- [Favicon Generator](https://favicon.io/favicon-generator/): Created a custom favicon to enhance the branding and recognition of our web application.
+
+## Functionality and Features
+- [AJAX form data](https://stackoverflow.com/questions/38826127/how-to-send-form-data-and-display-them-dynamically-with-ajax-in-the-same-page): Implemented AJAX to handle form submissions without page reloads, improving user experience.
+- [Like count implementation](https://dev.to/radualexandrub/how-to-add-like-unlike-button-to-your-django-blog-5gkg): Incorporated a like/unlike feature for posts, enabling user interaction and engagement.
+
+### Technical Documentation and References
+- [Django Documentation](https://docs.djangoproject.com/en/5.0/topics/http/views/): Consulted extensively for understanding and implementing various Django views.
+- [Django Forms](https://docs.djangoproject.com/en/5.0/topics/forms/): Used to manage and validate forms within the app.
+- [Django Models](https://docs.djangoproject.com/en/5.0/topics/db/models/): Helped in designing and interacting with the database models.
+- [Django Authentication](https://docs.djangoproject.com/en/5.0/topics/auth/): Implemented authentication features, ensuring secure user access and management.
+- [Django File Uploads](https://docs.djangoproject.com/en/5.0/topics/http/file-uploads/): Managed user-uploaded files, including profile images.
+- [Django Messages Framework](https://docs.djangoproject.com/en/5.0/ref/contrib/messages/): Provided user feedback messages across the application.
+
+### Additional Features
+- [AJAX-based chat system](https://stackoverflow.com/questions/45255785/creating-an-ajax-based-chat-system-how-to-avoid-page-refresh-on-submitted-conte): Created a real-time chat feature for users to communicate without page reloads.
+- [User Profile Management](https://dev.to/earthcomfy/django-user-profile-3hik): Developed comprehensive user profile functionalities to enhance personalisation.
+- [Django Invite Friends](https://stackoverflow.com/questions/18102254/django-invite-friends-from-social-account): Added the ability for users to invite friends from their social accounts, facilitating network growth.
+- [WhiteNoise](https://whitenoise.readthedocs.io/en/stable/django.html): Utilised for efficient serving of static files, ensuring fast load times and better performance.
+- [Ignore X-Frame Headers Extension](https://chromewebstore.google.com/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe?pli=1): Assisted in debugging and testing embedded frames during development.
+
+These resources collectively guided the development of the "Women Only - Find a Fitness Friend" social media website, ensuring it is robust, user-friendly, and feature-rich, with the potential to become something advaced and high-profile. 

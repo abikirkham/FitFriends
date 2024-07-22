@@ -282,6 +282,8 @@ Click "Deploy Branch".
 - Dashboard.html
 <img src="static/images/dashboard-validate.png">
 
+- The errors presenting on this page are due to the posts users have already submitted, the duplication errors are inevitable and same with the text body.
+
 - Login.html
 <img src="static/images/login-validate.png">
 
@@ -721,3 +723,5 @@ To resolve these problems, I sought help from Code Institute teachers. I was adv
 - [Ignore X-Frame Headers Extension](https://chromewebstore.google.com/detail/ignore-x-frame-headers/gleekbfjekiniecknbkamfmkohkpodhe?pli=1): Assisted in debugging and testing embedded frames during development.
 
 These resources collectively guided the development of the "Women Only - Find a Fitness Friend" social media website, ensuring it is robust, user-friendly, and feature-rich, with the potential to become something advaced and high-profile. 
+
+Thank you!

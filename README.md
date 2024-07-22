@@ -297,7 +297,7 @@ Click "Deploy Branch".
 - Register.html
 <img src="static/images/register-validate.png">
 
-- aAs you can see here on the register page, these errors are coming from the django modal. This does not cause any issues with the sign up however I was unable to do this with the time limits.
+- As you can see here on the register page, these errors are coming from the django modal. This does not cause any issues with the sign up however I was unable to do this with the time limits.
 
 </details>
 
@@ -310,6 +310,7 @@ Click "Deploy Branch".
 
 <img src="static/images/about-css-checker.png" width="250px">
 
+</details>
 
 #### JAVASCRIPT
 

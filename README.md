@@ -298,6 +298,7 @@ Click "Deploy Branch".
 <img src="static/images/register-validate.png">
 
 - aAs you can see here on the register page, these errors are coming from the django modal. This does not cause any issues with the sign up however I was unable to do this with the time limits.
+
 </details>
 
 #### CSS
@@ -500,6 +501,7 @@ The form does not submit, and an error is displayed to tell the user that a vali
 The website behaved as expected; an error message was displayed, and the form did not submit. 
 
 ![field-require](static/images/missing-r-password-signup.png)
+
 </details>
 
 #### Scenario Two - Correct Inputs for Login
@@ -591,6 +593,7 @@ Form submits with no warnings or errors, and the message is sent successfully, a
 **Actual:**
 
 The website behaved as expected with no errors or warnings and the message was sent successfully, appearing in the user's sent messages.
+
 </details>
 
 #### Scenario Four - Correct Inputs for Profile Pic Upload
@@ -641,6 +644,7 @@ The website behaved as expected; an error message was displayed, and the form di
 
 ![field-require](static/images/pre-image-upload.png)
 ![field-require](static/images/post-image-upload.png)
+
 </details>
 
 #### Scenario Five - Correct Inputs for Posting a Status
@@ -667,6 +671,7 @@ Form submits with no warnings or errors, and the status is posted successfully, 
 **Actual:**
 
 The website behaved as expected with no errors or warnings and the status was posted successfully, appearing on the user's timeline.
+
 </details>
 
 ## Issues

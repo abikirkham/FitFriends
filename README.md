@@ -275,25 +275,29 @@ Click "Deploy Branch".
 <summary>Click to expand.</summary>
 
 - About.html
-<img src="">
+<img src="static/images/about-validate.png">
+
+- As you can see here, there is a warning as there are no headers or discriptions on my image carosel, this is simply because I had no need or desire to add text here.
 
 - Dashboard.html
-<img src="">
+<img src="static/images/dashboard-validate.png">
 
 - Login.html
-<img src="">
+<img src="static/images/login-validate.png">
 
 - Logout.html
-<img src="">
+<img src="static/images/logout-validate.png">
 
 - Messages.html
-<img src="">
+<img src="static/images/messages-validate.png">
 
 - Profile.html
-<img src="">
+<img src="static/images/profile-validate.png">
 
 - Register.html
-<img src="">
+<img src="static/images/register-validate.png">
+
+- aAs you can see here on the register page, these errors are coming from the django modal. This does not cause any issues with the sign up however I was unable to do this with the time limits.
 </details>
 
 #### CSS

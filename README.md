@@ -301,31 +301,10 @@ Click "Deploy Branch".
 <details>
 <summary>Click to expand.</summary>
 
-- About.html
+- I have included only one screenshot as all the pages are linked to the same CSS and all pages load the styles consistently as can be seen in the features.
 
 <img src="static/images/about-css-checker.png" width="250px">
 
-- Dashboard.html
-<img src="">
-
-- Login.html
-
-<img src="static/images/login-css-checker.png" width="250px">
-
-- Logout.html
-<img src="">
-
-- Messages.html
-<img src="">
-
-- Profile.html
-<img src="">
-
-- Register.html
-
-<img src="static/images/home-css-checker.png" width="250px">
-
-</details>
 
 #### JAVASCRIPT
 
@@ -410,17 +389,17 @@ By utilising the Wave Accessibility tool for ongoing development and final testi
 | Load page: Profile | Once logged in with correct credentials opened on to your account, you can access profile from here | This profile is created when the user signs up, it will load their default profile image or already uploaded image, their bio short desription, the posts they have made posting on the dashboard and the other users they have followed. | Pass |
 | Load page: Messages | Once logged in with correct credentials opened on to your account, you can access messages from here | Initailly when opening this page, this willl show the logged in users friend list (as you can only start a chat with friends). When a friend is selected, their conversation with any previous messages shown. Also the ability to send live messages. | Pass |
 | Load page: Logout | Once logged in with correct credentials opened on to your account, you can logout from here | When the logout button in the navigation is pressed, this will log the user out and redirect them to the login page, with the navigation when user not logged in. | Pass |
-| Sign up modal | Access FitFriends link, select the "Sign up now!" buttom for sign up modal to appear |  | Pass |
-| Like post | Once logged in with correct credentials, on the dashboard you can see all account holders posts where you can interact by liking posts |  | Pass |
-| Comment on post | Once logged in with correct credentials, on the dashboard you can see all account holders posts where you can interact by commenting on posts |  | Pass |
-| Post a Status | Once logged in with correct credentials, you can post your personalised status on the dashboard for everyone to see |  | Pass |
-| Another user profile | Once logged in with correct credentials, from the dashoard you will be able to see all users, if you like the posts and want to find out more about them, you can click on their name which will bring up there profile |  | Pass |
-| Upload profile picture | Once logged in with correct credentials, you can access your personal profile and upload your own picture with the upload button |  | Pass |
-| Update personal status | Once logged in with correct credentials, you can access your personal profile and add a personal statement about you/ explaining your profile |  | Pass |
-| View friends | Once logged in with correct credentials, on you profile page you will be able to see your friends you have followed |  | Pass |
-| Delete posts | Once logged in with correct credentials, on you profile page you will be able to view all posts on the dashboard and have the option to delete these |  | Pass |
-| Select friend to have conversation with | Once logged in with correct credentials, on the messages page you will see a list of all your friends to message |  | Pass |
-| Send a message | Once logged in with correct credentials, on the messages page after selecting a friend to have a conversation with you will see a text feild where you can type and send your private message |  | Pass |
+| Sign up modal | Access FitFriends link, select the "Sign up now!" buttom for sign up modal to appear | Django's sign up modal loads with the Username, Email, Password and Repeat passowrd text boxs load and once correctly inputted and submitted this will load the login page ready for user to login. | Pass |
+| Like post | Once logged in with correct credentials, on the dashboard you can see all account holders posts where you can interact by liking posts | When clicking the like button, this will update the amount of likes on a post, changed text to "liked" and highlight to show the post is liked by user. | Pass |
+| Comment on post | Once logged in with correct credentials, on the dashboard you can see all account holders posts where you can interact by commenting on posts | You can type your comment in the comment box under each post, once the message is ready you can hit "submit". This will refresh the page and show the message under the post. | Pass |
+| Post a Status | Once logged in with correct credentials, you can post your personalised status on the dashboard for everyone to see | By typing in the status box and selecting submit, this will post the users status to the dashboard (also shown on their profile), this will show the users name, date and time posted with their profile picture, likes and comments interactions. | Pass |
+| Another user profile | Once logged in with correct credentials, from the dashoard you will be able to see all users, if you like the posts and want to find out more about them, you can click on their name which will bring up there profile | When selecting the user profile yuo want to visit, this will load their profile with their profile image and bio. Also give you an option to add them as a friend, see their posts and friends list. | Pass |
+| Upload profile picture | Once logged in with correct credentials, you can access your personal profile and upload your own picture with the upload button | An automatic profile picture will be loaded for every new user, by selecting the upload button and select your correct file you would like as your picture. This will refresh the page with the updated picture - also shown on the dashboard. | Pass |
+| Update personal status | Once logged in with correct credentials, you can access your personal profile and add a personal statement about you/ explaining your profile | Once on the profile page, you can write your own bio, once clicked the save button, this will automatically update for all other users to see. | Pass |
+| View friends | Once logged in with correct credentials, on you profile page you will be able to see your friends you have followed | At the bottom of the profile page, you will be able to see your friends list with access to their profile too. | Pass |
+| Delete posts | Once logged in with correct credentials, on you profile page you will be able to view all posts on the dashboard and have the option to delete these | The red 'danger' delete button loads and once clicked the page will automatically refresh with the post you wanted deleted gone from profile and dashboard. | Pass |
+| Select friend to have conversation with | Once logged in with correct credentials, on the messages page you will see a list of all your friends to message | Once a friend is selected, their conversation will appear showing any previous messgaes, you can flick between friends converstaioins on that page. | Pass |
+| Send a message | Once logged in with correct credentials, on the messages page after selecting a friend to have a conversation with you will see a text feild where you can type and send your private message | Once the message is sent, the page will automativally refresh showing the users messgae, name, date and time this was sent. | Pass |
 
 
 ### Form Testing
@@ -688,7 +667,14 @@ The website behaved as expected with no errors or warnings and the status was po
 
 ## Issues
 
-- intial issues with static files from cloudinary - look back on code insitute tutor chat 
+- Initially, I started using Cloudinary as it was one of the better options for handling static files and media for the walkthrough project. I felt it would be well-suited for my social media site. However, I encountered numerous issues with my static files, including CSS and images, such as them not loading correctly, causing errors, and issues arising when using the collectstatic command.
+
+To resolve these problems, I sought help from Code Institute teachers. I was advised on Slack to use Whitenoise instead of Cloudinary. Additionally, I was guided to reposition my MIDDLEWARE lines into a better readable structure for Django to understand them. This change eliminated the issues I was previously facing. As long as I ensured to run collectstatic often enough, everything ran smoothly.
+
+![issue1](static/images/issue1.png)
+![issue2](static/images/issue2.png)
+
+- If I had more time with this project I would make lots of changes, this would require a lot more research and possible collaboration. 
 
 ## Credits
 - [WireFrames](https://cacoo.com/diagrams/QXSJF7qPDCKNuzVk/B4F94?reload_rt=1718100120618_1&)
